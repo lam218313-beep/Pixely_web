@@ -14,14 +14,15 @@ export const RULES = [
 
 function extractText(doc) {
   const parts = [doc.title, doc.body ? doc.body.textContent : ''];
-  doc.querySelectorAll('[alt], [aria-label], [title], meta[name="description"], meta[property^="og:"], meta[name^="twitter:"]')
+  doc.querySelectorAll('script[type="application/ld+json"]').forEach((el) => parts.push(el.textContent));
+  doc.querySelectorAll('[alt], [aria-label], [title], [placeholder], meta[content]')
     .forEach((el) => {
-      for (const attr of ['alt', 'aria-label', 'title', 'content']) {
+      for (const attr of ['alt', 'aria-label', 'title', 'placeholder', 'content']) {
         const value = el.getAttribute(attr);
         if (value) parts.push(value);
       }
     });
-  return parts.join('\n');
+  return parts.join('\n').normalize('NFC');
 }
 
 export function findViolations(html) {

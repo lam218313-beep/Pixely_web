@@ -29,4 +29,25 @@ describe('findViolations', () => {
     const rules = findViolations(page('<p>Mejor que Canva</p>')).map((v) => v.rule);
     expect(rules).toContain('canva-fuera-de-faq');
   });
+
+  it('revisa JSON-LD en el head', () => {
+    const head = '<script type="application/ld+json">{"description":"Desde S/ 600 al mes"}</script>';
+    const rules = findViolations(page('<p>Hola</p>', head)).map((v) => v.rule);
+    expect(rules).toContain('precio');
+  });
+
+  it('revisa cualquier meta content, no solo description', () => {
+    const rules = findViolations(page('<p>Hola</p>', '<meta name="keywords" content="barato">')).map((v) => v.rule);
+    expect(rules).toContain('barato');
+  });
+
+  it('revisa el atributo placeholder', () => {
+    const rules = findViolations(page('<input placeholder="Plantilla">')).map((v) => v.rule);
+    expect(rules).toContain('plantilla');
+  });
+
+  it('detecta tildes descompuestas (NFD)', () => {
+    const rules = findViolations(page('<p>económico</p>')).map((v) => v.rule);
+    expect(rules).toContain('economico');
+  });
 });
