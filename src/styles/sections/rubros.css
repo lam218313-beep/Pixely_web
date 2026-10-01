@@ -8,6 +8,7 @@
 .rubro__cta { display: grid; align-content: end; gap: 8px; height: 100%; padding: 24px; background: var(--ink); color: #fff; transition: background-color 0.3s; }
 .rubro__cta:hover, .rubro__cta:focus-visible { background: var(--magenta-cta); }
 .rubro__cta .caption { color: rgba(255, 255, 255, 0.8); }
+.rubro__cta:hover .caption, .rubro__cta:focus-visible .caption { color: #fff; }
 
 @media (min-width: 1024px) {
   .rubros__grid { grid-template-columns: repeat(4, 1fr); }
@@ -20,5 +21,5 @@
   .rubro__media img { height: 100%; aspect-ratio: auto; border-radius: 0; transform: scale(1.06); transition: transform 0.8s var(--ease-out); }
   .rubro:hover .rubro__media { opacity: 1; }
   .rubro:hover .rubro__media img { transform: scale(1); }
-  .rubro:hover .rubro__name { color: #fff; }
+  .rubro:has(.rubro__media):hover .rubro__name { color: #fff; }
 }

@@ -44,3 +44,13 @@ test('problemas: 3 filas con CTA, fuentes y disclaimer', async ({ page }) => {
   await expect(imgs).toHaveCount(3);
   for (let i = 0; i < 3; i += 1) await expectLoaded(imgs.nth(i));
 });
+
+test('rubros: el nombre de la celda de texto sigue visible al pasar el cursor', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'el hover solo aplica en escritorio');
+  await page.goto('/');
+  await page.addStyleTag({ content: '.rubro__name { transition: none !important; }' });
+  const cell = page.locator('#rubros .rubro--text');
+  await cell.scrollIntoViewIfNeeded();
+  await cell.hover();
+  await expect(cell.locator('.rubro__name')).not.toHaveCSS('color', 'rgb(255, 255, 255)');
+});
