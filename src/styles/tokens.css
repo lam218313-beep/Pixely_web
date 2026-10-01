@@ -1,0 +1,45 @@
+:root {
+  --ink: #0A0A0C;
+  --carbon: #141418;
+  --carbon-2: #1C1C22;
+  --paper: #FFFFFF;
+  --mist: #F3F3F5;
+  --magenta: #EB0C6E;
+  --magenta-cta: #D90B66;
+  --text-on-ink: #FFFFFF;
+  --text-on-ink-2: rgba(255, 255, 255, 0.62);
+  --text-on-paper: #0A0A0C;
+  --text-on-paper-2: #5B5E66;
+  --line-ink: rgba(255, 255, 255, 0.10);
+  --line-paper: #E4E4E8;
+
+  --font-display: 'Bricolage Grotesque', Arial, sans-serif;
+  --font-body: 'Albert Sans', Arial, sans-serif;
+  --fs-xl: clamp(2.5rem, 4.72vw, 5.5rem);
+  --fs-l: clamp(2rem, 3.33vw, 4rem);
+  --fs-m: clamp(1.6rem, 2.78vw, 3.2rem);
+  --fs-lead: clamp(1.125rem, 1.5vw, 1.5rem);
+  --fs-body: 1.0625rem;
+  --fs-caption: 0.78rem;
+
+  --gutter: 16px;
+  --header-h: 64px;
+  --section-pad: 96px;
+  --radius-btn: 8px;
+  --radius-card: 12px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Pestaña de borde inferior: punta del logo P (móvil) */
+  --notch: polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 0.8px) calc(100% - 17.8px), calc(100% - 3.2px) calc(100% - 12px), calc(100% - 7px) calc(100% - 7px), calc(100% - 12px) calc(100% - 3.2px), calc(100% - 17.8px) calc(100% - 0.8px), calc(100% - 24px) 100%, calc(50% + 62.4px) 100%, calc(50% + 55.4px) calc(100% - 0.8px), calc(50% + 48.5px) calc(100% - 2.9px), calc(50% + 42px) calc(100% - 6.2px), calc(50% + 35.8px) calc(100% - 10.6px), calc(50% + 30.2px) calc(100% - 15.8px), calc(50% + 25.3px) calc(100% - 21.6px), calc(50% + 21.3px) calc(100% - 28px), calc(50% + 18.2px) calc(100% - 34.6px), calc(50% + 16.3px) calc(100% - 41.4px), calc(50% + 15.6px) calc(100% - 48.1px), calc(50% - 22.1px) 100%, calc(50% - 22.1px) calc(100% - 48.1px), calc(50% - 22.8px) calc(100% - 41.4px), calc(50% - 24.7px) calc(100% - 34.6px), calc(50% - 27.8px) calc(100% - 28px), calc(50% - 31.8px) calc(100% - 21.6px), calc(50% - 36.7px) calc(100% - 15.8px), calc(50% - 42.3px) calc(100% - 10.6px), calc(50% - 48.5px) calc(100% - 6.2px), calc(50% - 55px) calc(100% - 2.9px), calc(50% - 61.9px) calc(100% - 0.8px), calc(50% - 68.9px) 100%, 24px 100%, 17.8px calc(100% - 0.8px), 12px calc(100% - 3.2px), 7px calc(100% - 7px), 3.2px calc(100% - 12px), 0.8px calc(100% - 17.8px), 0px calc(100% - 24px));
+  --notch-depth: 48px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2.5vw;
+    --header-h: 76px;
+    --section-pad: 200px;
+    --notch: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 1.4px) calc(100% - 29.6px), calc(100% - 5.4px) calc(100% - 20px), calc(100% - 11.7px) calc(100% - 11.7px), calc(100% - 20px) calc(100% - 5.4px), calc(100% - 29.6px) calc(100% - 1.4px), calc(100% - 40px) 100%, calc(50% + 96px) 100%, calc(50% + 85.2px) calc(100% - 1.2px), calc(50% + 74.7px) calc(100% - 4.4px), calc(50% + 64.6px) calc(100% - 9.6px), calc(50% + 55.1px) calc(100% - 16.3px), calc(50% + 46.5px) calc(100% - 24.2px), calc(50% + 39px) calc(100% - 33.3px), calc(50% + 32.7px) calc(100% - 43px), calc(50% + 28px) calc(100% - 53.2px), calc(50% + 25px) calc(100% - 63.7px), calc(50% + 24px) calc(100% - 74px), calc(50% - 34px) 100%, calc(50% - 34px) calc(100% - 74px), calc(50% - 35px) calc(100% - 63.7px), calc(50% - 38px) calc(100% - 53.2px), calc(50% - 42.7px) calc(100% - 43px), calc(50% - 49px) calc(100% - 33.3px), calc(50% - 56.5px) calc(100% - 24.2px), calc(50% - 65.1px) calc(100% - 16.3px), calc(50% - 74.6px) calc(100% - 9.6px), calc(50% - 84.7px) calc(100% - 4.4px), calc(50% - 95.2px) calc(100% - 1.2px), calc(50% - 106px) 100%, 40px 100%, 29.6px calc(100% - 1.4px), 20px calc(100% - 5.4px), 11.7px calc(100% - 11.7px), 5.4px calc(100% - 20px), 1.4px calc(100% - 29.6px), 0px calc(100% - 40px));
+    --notch-depth: 74px;
+  }
+}
