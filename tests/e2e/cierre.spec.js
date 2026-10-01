@@ -36,3 +36,14 @@ test('pie: CTA gigante, contacto y datos legales', async ({ page }) => {
   await expect(footer.locator('a[href="/terminos.html"]')).toBeVisible();
   await expect(footer.locator('a[href="/privacidad.html"]')).toBeVisible();
 });
+
+test('pie: el CTA gigante cabe completo a 320px', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto('/');
+  const cta = page.locator('.footer-cta');
+  await cta.scrollIntoViewIfNeeded();
+  const arrow = await page.locator('.footer-cta__arrow').boundingBox();
+  const text = await page.locator('.footer-cta__text').boundingBox();
+  expect(arrow.x + arrow.width).toBeLessThanOrEqual(320);
+  expect(text.x + text.width).toBeLessThanOrEqual(arrow.x);
+});
