@@ -60,7 +60,7 @@ Cada prompt final = texto de la fila + (sufijo de personas si la columna "person
 | eco-investigar | EbOL9IWuuO | 1 | aprobada |
 | eco-planificar | bx6wZCC5Y2 | 1 | aprobada |
 | eco-producir | ksROGH716B | 1 | aprobada (rótulo ilegible en un softbox) |
-| eco-publicar | bx6wZQQ5Y2 | 1 | aprobada |
+| eco-publicar | mEgK9ZfhJQ | 2 | aprobada (intento 1 bx6wZQQ5Y2 fallo: pantalla azul-violeta/lavanda y tienda con teléfono tipo iPhone; intento 2 con "solid deep magenta only, no blue/violet/lavender; generic unbranded phone; small independent shop counter", sin el hex) |
 | historia | CqJj9QYEEy | 1 | aprobada |
 | og-fondo | CqJjNwmEEy | 2 | aprobada (intento 1: brillo rosa pastel; se añadió "saturated deep hot magenta, not pale pink") |
 
