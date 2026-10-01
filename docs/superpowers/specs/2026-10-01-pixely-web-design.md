@@ -52,7 +52,10 @@ Sustituir la página "Próximo lanzamiento" de GoDaddy en `pixely.pe` por un sit
 |---|---|
 | Dominio | `pixely.pe` (registrado en GoDaddy) |
 | WhatsApp | +51 949 268 607 → `https://wa.me/51949268607` |
-| Instagram | `@pixely_pe` (los docs de marca dicen `@pixely.pe`; manda el dato del usuario) |
+| Instagram | `@pixely_pe` (única red social que se enlaza en la v1) |
+| Email | `hola@pixely.pe` |
+| Pixely Partners | `https://partners.pixely.pe` (enlace oculto mientras `mostrarPartners = false`) |
+| Logo | Solo la P rosa (`#EB0C6E`), sin nombre al lado. Se reconstruyó en SVG desde `logo_pixely.png` con una coincidencia del 98,9 % |
 | Razón social | SYNTESIA LABS E.I.R.L. |
 | RUC | 20616010787 |
 | Cobertura | 100 % digital, toda Latinoamérica; asesoría presencial en Lima Metropolitana |
@@ -96,7 +99,7 @@ El orden es el de la página. **N** = fondo negro, **B** = fondo blanco. Los blo
 
 ### 4.0 Cabecera
 
-- **Izquierda:** marca P magenta + nombre (ver pendiente P2).
+- **Izquierda:** el logo P rosa, solo, con `aria-label="Pixely — inicio"`.
 - **Centro (escritorio):** anclas a Planes, Cómo funciona, Ecosistema y Preguntas.
 - **Derecha:** botón "Escríbenos" que abre WhatsApp. El enlace "Acceso clientes" a Partners solo aparece si `mostrarPartners = true`.
 - **Móvil:** marca, botón compacto de WhatsApp y hamburguesa. La hamburguesa abre un panel oscuro a pantalla completa con las anclas.
@@ -318,8 +321,8 @@ Los parámetros de la columna "Referencia medida" se leyeron del CSS de phenomen
 ### 7.3 Proceso
 
 1. Redacto los prompts.
-2. Calculo el costo con `simulate_cost`.
-3. **El usuario aprueba la lista y el costo.**
+2. Calculo el costo con `simulate_cost` y lo informo al usuario.
+3. **Aprobación:** el usuario aprobó por adelantado la lista y el costo el 2026-10-01. Solo me detengo a preguntar si el costo simulado supera el saldo de la cuenta.
 4. Genero.
 5. El usuario revisa las imágenes.
 6. Optimizo: AVIF/WebP + JPG de respaldo, a 2× el tamaño en que se muestran, con `loading="lazy"` excepto en el hero.
@@ -432,16 +435,16 @@ pixely-web/
 
 ---
 
-## 11. Pendientes del usuario
+## 11. Pendientes del usuario (resueltos el 2026-10-01)
 
-Ninguno bloquea el diseño. Los marcados con ⚠ bloquean la publicación en producción.
-
-| # | Pendiente | Impacto |
+| # | Pendiente | Resolución |
 |---|---|---|
-| P1 ⚠ | Que un abogado o contador revise la privacidad y los términos, y decida si hace falta **Libro de Reclamaciones virtual** (Ley 29571; depende de si Pixely atiende a consumidores finales). Quanta Contadores puede orientar | Legal |
-| P2 | ¿Existe un logotipo con el nombre "Pixely"? Si no, se usa la P + "pixely" en Bricolage Grotesque | Cabecera, pie, imagen OG |
-| P3 | Email de contacto (opcional) y si `@pixely_pe` también es la cuenta de TikTok y Facebook | Pie, JSON-LD |
-| P4 | Actualizar `5.-formato.md` y `3.-inputs_comercial.md`, que todavía dicen `@pixely.pe` | Coherencia de la marca |
-| P5 | Capturas de Partners cuando esté terminado, y su URL de acceso | Activar `mostrarPartners` |
-| P6 | Aprobar la lista de prompts y el costo de Magnific (§7.3) | Imágenes y vídeo |
-| P7 ⚠ | Confirmar que el **Lab (10 métricas)** ya se entrega hoy aunque Partners no esté terminado. Si no, se quita la cifra "10" del hero (§4.1) y se reformula el paso 02 (§4.5) como "próximamente" | Veracidad del hero y de Cómo funciona |
+| P1 | Revisión legal y Libro de Reclamaciones | El abogado lo aprobó. La v1 no incluye Libro de Reclamaciones |
+| P2 | Logotipo | Solo la P rosa |
+| P3 | Email y redes | `hola@pixely.pe`; solo Instagram `@pixely_pe` |
+| P4 | Handle desactualizado en los docs | `@pixely.pe` → `@pixely_pe` en `Pixely/Inputs/docs/5.-formato.md` y `Quanta/Inputs/docs/5.-formato.md` |
+| P5 | Partners | URL `https://partners.pixely.pe`; las capturas llegan cuando esté terminado |
+| P6 | Prompts y costo de Magnific | Aprobados por adelantado (§7.3) |
+| P7 | Lab (10 métricas) | Se lanza tal cual. **Tarea futura:** cuando Partners esté terminado, leer su repositorio y mejorar las secciones de Partners y el Lab con datos reales |
+
+**Publicación:** el usuario autorizó el lanzamiento a producción ("lánzalo así"). El cambio de DNS en GoDaddy lo hace el usuario, con los valores que indique Vercel.
