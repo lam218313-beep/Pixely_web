@@ -1,0 +1,15 @@
+.como__title { max-width: 24ch; margin: 16px 0 56px; }
+.pasos { display: grid; gap: 64px; }
+.paso { display: grid; gap: 24px; }
+.paso__media img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-card); }
+.paso__body { display: grid; gap: 16px; align-content: start; }
+.paso__meta { display: grid; }
+.paso__meta div { display: grid; gap: 4px; padding-block: 16px; border-top: 1px solid var(--line-paper); }
+.paso__meta dd { margin: 0; }
+.como__timeline { margin-top: 56px; max-width: 48ch; }
+.como__timeline + .source-note { margin-top: 12px; }
+
+@media (min-width: 1024px) {
+  .paso { grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .paso__meta div { grid-template-columns: 160px 1fr; }
+}
