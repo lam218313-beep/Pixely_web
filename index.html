@@ -29,7 +29,38 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
-  <!-- @header -->
+  <header class="site-header" data-theme="dark">
+    <div class="site-header__bar container">
+      <a class="site-header__logo" href="/" aria-label="Pixely — inicio">
+        <img src="/brand/pixely-p.svg" alt="" width="28" height="42">
+      </a>
+      <nav class="site-header__nav" aria-label="Principal">
+        <ul>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#ecosistema">Ecosistema</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a class="site-header__access" data-flag="mostrarPartners" hidden href="https://partners.pixely.pe">Acceso clientes</a>
+        <a class="btn btn--primary btn--sm" data-cta="header" href="https://wa.me/51949268607"><span class="btn__label">Escríbenos</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+        <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Abrir menú"><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="menu-panel" id="menu-panel" hidden>
+      <nav aria-label="Menú móvil">
+        <ul>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#ecosistema">Ecosistema</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+          <li data-flag="mostrarPartners" hidden><a href="https://partners.pixely.pe">Acceso clientes</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--primary" data-cta="menu" href="https://wa.me/51949268607"><span class="btn__label">Escríbenos por WhatsApp</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+  </header>
   <main id="main">
     <!-- @hero -->
     <!-- @rubros -->

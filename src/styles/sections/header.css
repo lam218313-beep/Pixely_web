@@ -1,0 +1,45 @@
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  color: var(--text-on-ink); background: var(--ink);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+.site-header[data-theme="light"] { background: var(--paper); color: var(--text-on-paper); border-bottom-color: var(--line-paper); }
+.site-header__bar { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.site-header__logo img { width: 24px; height: auto; }
+.site-header__nav { display: none; }
+.site-header__nav ul { display: flex; gap: 40px; }
+.site-header__nav a, .site-header__access {
+  font-family: var(--font-display); font-size: var(--fs-caption); font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.site-header__nav a:hover, .site-header__access:hover { color: var(--magenta); }
+.site-header__actions { display: flex; align-items: center; gap: 12px; }
+.site-header__access { display: none; }
+.site-header__toggle {
+  width: 44px; height: 44px; border-radius: var(--radius-btn);
+  display: grid; place-content: center; gap: 6px;
+  background: var(--carbon-2);
+}
+.site-header[data-theme="light"] .site-header__toggle { background: var(--mist); }
+.site-header__toggle span { display: block; width: 16px; height: 2px; background: currentColor; transition: transform 0.3s; }
+.site-header__toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+.site-header__toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+
+.menu-panel {
+  position: fixed; inset: var(--header-h) 0 0 0;
+  background: var(--ink); color: var(--text-on-ink);
+  padding: 32px var(--gutter);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.menu-panel[hidden] { display: none; }
+.menu-panel ul { display: grid; gap: 8px; }
+.menu-panel a:not(.btn) { font-family: var(--font-display); font-size: 2rem; font-weight: 500; }
+body.menu-open { overflow: hidden; }
+
+@media (min-width: 1024px) {
+  .site-header__nav { display: block; }
+  .site-header__access:not([hidden]) { display: inline; }
+  .site-header__toggle { display: none; }
+  .site-header__logo img { width: 28px; }
+}
