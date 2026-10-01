@@ -31,3 +31,22 @@ test.describe('con reducir movimiento', () => {
     expect(await page.locator('.hero__video').evaluate((v) => v.paused)).toBe(true);
   });
 });
+
+test('hero: el botón pausa y reanuda el showreel', async ({ page }) => {
+  await page.goto('/');
+  const video = page.locator('.hero__video');
+  const toggle = page.getByRole('button', { name: 'Pausar showreel' });
+  await expect.poll(() => video.evaluate((v) => v.paused)).toBe(false);
+  await toggle.click();
+  await expect.poll(() => video.evaluate((v) => v.paused)).toBe(true);
+  await expect(page.getByRole('button', { name: 'Reproducir showreel' })).toBeVisible();
+});
+
+test.describe('con reducir movimiento (botón)', () => {
+  test.use({ reducedMotion: 'reduce' });
+  test('el botón inicia el showreel', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Reproducir showreel' }).click();
+    await expect.poll(() => page.locator('.hero__video').evaluate((v) => v.paused)).toBe(false);
+  });
+});

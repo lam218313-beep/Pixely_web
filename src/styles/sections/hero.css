@@ -9,6 +9,13 @@
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
   color: #fff; text-decoration: underline; text-underline-offset: 6px; white-space: nowrap;
 }
+.hero__media-toggle {
+  position: absolute; right: 16px; bottom: 16px; z-index: 1;
+  min-width: 44px; min-height: 44px; display: grid; place-items: center;
+  background: var(--carbon-2); color: #fff; border: 0; border-radius: var(--radius-btn);
+  font-size: 0.875rem; line-height: 1; cursor: pointer;
+}
+.no-js .hero__media-toggle { display: none; }
 .hero__info { display: flex; flex-direction: column; gap: 24px; }
 .hero__formats { grid-template-columns: repeat(2, 1fr); }
 .hero__formats .cell { display: grid; gap: 6px; font-weight: 500; }
