@@ -1,0 +1,28 @@
+export const config = {
+  whatsapp: '51949268607',
+  email: 'hola@pixely.pe',
+  instagram: 'https://www.instagram.com/pixely_pe/',
+  partnersUrl: 'https://partners.pixely.pe',
+  mensajes: {
+    default: 'Hola Pixely, vengo de su web y quiero más información.',
+    header: 'Hola Pixely, vengo de su web y quiero más información.',
+    menu: 'Hola Pixely, vengo de su web y quiero más información.',
+    hero: 'Hola Pixely, vengo de su web y quiero saber qué plan me conviene.',
+    'rubro-otro': 'Hola Pixely, mi rubro no aparece en su web. ¿Trabajan con negocios como el mío?',
+    'problema-fotos': 'Hola Pixely, mis fotos son de celular y quiero que mi producto se vea profesional.',
+    'problema-diseno': 'Hola Pixely, quiero publicidad con estrategia, no solo diseños.',
+    'problema-tiempo': 'Hola Pixely, no tengo tiempo para publicar. ¿Ustedes pueden encargarse?',
+    planes: 'Hola Pixely, quiero que me recomienden el plan adecuado para mi negocio.',
+    'plan-pro': 'Hola Pixely, me interesa el Plan Pro.',
+    'plan-basic': 'Hola Pixely, me interesa el Plan Basic.',
+    'plan-lite': 'Hola Pixely, me interesa el Plan Lite.',
+    partners: 'Hola Pixely, quiero saber cuándo sale Pixely Partners.',
+    faq: 'Hola Pixely, tengo una pregunta que no está en su web.',
+    footer: 'Hola Pixely, vengo de su web y quiero empezar.',
+  },
+  flags: {
+    mostrarPartners: false,
+    mostrarCasos: false,
+    mostrarTestimonios: false,
+  },
+};
