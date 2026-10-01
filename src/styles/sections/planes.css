@@ -1,0 +1,47 @@
+.planes__title { max-width: 20ch; margin-top: 16px; }
+.planes__intro { max-width: 52ch; margin: 20px 0 48px; }
+.planes__layout { display: grid; gap: 32px; }
+.planes__aside {
+  position: sticky; top: var(--header-h); z-index: 2;
+  margin-inline: calc(var(--gutter) * -1); padding: 12px var(--gutter);
+  background: var(--ink);
+}
+.planes__nav ul { display: flex; gap: 8px; }
+.planes__nav a {
+  display: inline-flex; padding: 8px 16px; border-radius: 999px;
+  font-family: var(--font-display); font-weight: 500;
+  color: var(--text-on-ink-2); background: var(--carbon);
+  transition: color 0.3s, background-color 0.3s;
+}
+.planes__nav a[aria-current="true"] { color: #fff; background: var(--carbon-2); }
+.planes__cta { display: none; }
+.plan { display: grid; gap: 24px; padding-bottom: 72px; scroll-margin-top: calc(var(--header-h) + 72px); }
+.plan__head { display: grid; gap: 8px; }
+.plan__items { grid-template-columns: 1fr; }
+.plan__item { display: grid; grid-template-columns: auto 1fr; grid-template-areas: 'num qty' 'title title' 'desc desc'; gap: 6px 12px; min-height: 160px; align-content: space-between; }
+.plan__num { grid-area: num; color: var(--text-on-ink-2); font-size: 0.85rem; }
+.plan__qty { grid-area: qty; justify-self: end; font-family: var(--font-display); font-size: 2rem; font-weight: 500; color: var(--magenta); line-height: 1; }
+.plan__item h4 { grid-area: title; font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; }
+.plan__item p { grid-area: desc; font-size: 0.95rem; }
+.plan__cta { justify-self: start; }
+.planes__note { margin-top: 24px; max-width: 60ch; }
+
+@media (min-width: 768px) {
+  .plan__items { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .planes__layout { grid-template-columns: 280px 1fr; gap: 48px; }
+  .planes__aside {
+    top: calc(var(--header-h) + 40px); align-self: start;
+    margin: 0; padding: 0; background: none;
+    display: grid; gap: 40px;
+  }
+  .planes__nav ul { display: grid; gap: 4px; }
+  .planes__nav a { padding: 0; background: none; border-radius: 0; font-size: 1.6rem; }
+  .planes__nav a[aria-current="true"] { background: none; }
+  .planes__cta { display: inline-flex; justify-self: start; }
+  .plan { padding-bottom: 140px; scroll-margin-top: calc(var(--header-h) + 40px); }
+  .plan__item { min-height: 240px; padding: 32px; }
+  .plan__qty { font-size: 2.6rem; }
+}
