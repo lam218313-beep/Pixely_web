@@ -54,3 +54,21 @@ test('rubros: el nombre de la celda de texto sigue visible al pasar el cursor', 
   await cell.hover();
   await expect(cell.locator('.rubro__name')).not.toHaveCSS('color', 'rgb(255, 255, 255)');
 });
+
+test('problemas: el CTA de una fila tapada queda visible y encima al recibir el foco', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'las filas solo se apilan en escritorio');
+  await page.goto('/');
+  // Al final de la lista las tres filas están apiladas en el mismo tope fijo.
+  await page.evaluate(() => {
+    const list = document.querySelector('.problemas__list');
+    window.scrollTo(0, list.getBoundingClientRect().bottom + window.scrollY - window.innerHeight);
+  });
+  const cta = page.locator('[data-cta="problema-fotos"]');
+  await expect.poll(() => cta.evaluate((el) => getComputedStyle(el.closest('.problema__a')).opacity)).toBe('0');
+  await cta.evaluate((el) => el.focus({ preventScroll: true }));
+  await expect.poll(() => cta.evaluate((el) => {
+    const r = el.getBoundingClientRect();
+    const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+    return Boolean(hit && el.contains(hit)) && getComputedStyle(el.closest('.problema__a')).opacity === '1';
+  })).toBe(true);
+});

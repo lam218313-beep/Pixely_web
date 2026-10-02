@@ -25,3 +25,8 @@
   }
   .problema__media img { aspect-ratio: 4 / 4.2; }
 }
+
+/* Una fila con el foco dentro sube encima de las que la tapan y anula el fundido
+   de stack-fade (estilo en línea), para que el CTA enfocado siempre se vea. */
+.problema:focus-within { z-index: 1; }
+.problema:focus-within > * { opacity: 1 !important; }
