@@ -39,8 +39,12 @@
   :root {
     --gutter: 2.5vw;
     --header-h: 76px;
-    --section-pad: 200px;
     --notch: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 1.4px) calc(100% - 29.6px), calc(100% - 5.4px) calc(100% - 20px), calc(100% - 11.7px) calc(100% - 11.7px), calc(100% - 20px) calc(100% - 5.4px), calc(100% - 29.6px) calc(100% - 1.4px), calc(100% - 40px) 100%, calc(50% + 96px) 100%, calc(50% + 85.2px) calc(100% - 1.2px), calc(50% + 74.7px) calc(100% - 4.4px), calc(50% + 64.6px) calc(100% - 9.6px), calc(50% + 55.1px) calc(100% - 16.3px), calc(50% + 46.5px) calc(100% - 24.2px), calc(50% + 39px) calc(100% - 33.3px), calc(50% + 32.7px) calc(100% - 43px), calc(50% + 28px) calc(100% - 53.2px), calc(50% + 25px) calc(100% - 63.7px), calc(50% + 24px) calc(100% - 74px), calc(50% - 34px) 100%, calc(50% - 34px) calc(100% - 74px), calc(50% - 35px) calc(100% - 63.7px), calc(50% - 38px) calc(100% - 53.2px), calc(50% - 42.7px) calc(100% - 43px), calc(50% - 49px) calc(100% - 33.3px), calc(50% - 56.5px) calc(100% - 24.2px), calc(50% - 65.1px) calc(100% - 16.3px), calc(50% - 74.6px) calc(100% - 9.6px), calc(50% - 84.7px) calc(100% - 4.4px), calc(50% - 95.2px) calc(100% - 1.2px), calc(50% - 106px) 100%, 40px 100%, 29.6px calc(100% - 1.4px), 20px calc(100% - 5.4px), 11.7px calc(100% - 11.7px), 5.4px calc(100% - 20px), 1.4px calc(100% - 29.6px), 0px calc(100% - 40px));
     --notch-depth: 74px;
   }
+}
+
+/* La referencia pasa de 100 px a 200 px de aire por sección a partir de ~992 px */
+@media (min-width: 1024px) {
+  :root { --section-pad: 200px; }
 }
