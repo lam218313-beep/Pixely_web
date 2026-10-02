@@ -1,0 +1,9 @@
+# Solo sube lo que necesita el build de Vercel
+media-src/
+.superpowers/
+test-results/
+playwright-report/
+dist/
+node_modules/
+docs/brand-source/
+.claude/
