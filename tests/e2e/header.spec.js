@@ -39,3 +39,13 @@ test('el menú abierto se cierra al ensanchar a escritorio', async ({ page }, in
   await expect(page.locator('#menu-panel')).toBeHidden();
   await expect(page.locator('main')).not.toHaveAttribute('inert');
 });
+
+test('escritorio: sobre fondo claro el hover del menú usa el magenta AA', async ({ page }, info) => {
+  test.skip(info.project.name !== 'desktop');
+  await page.goto('/');
+  await page.evaluate(() => window.scrollTo(0, document.getElementById('rubros').offsetTop + 10));
+  await expect(page.locator('.site-header')).toHaveAttribute('data-theme', 'light');
+  const link = page.locator('.site-header__nav a[href="#planes"]');
+  await link.hover();
+  await expect(link).toHaveCSS('color', 'rgb(217, 11, 102)');
+});

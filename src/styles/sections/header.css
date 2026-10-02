@@ -14,6 +14,8 @@
   letter-spacing: 0.1em; text-transform: uppercase;
 }
 .site-header__nav a:hover, .site-header__access:hover { color: var(--magenta); }
+/* Sobre blanco el magenta de marca no llega a AA en texto pequeño */
+.site-header[data-theme="light"] .site-header__nav a:hover, .site-header[data-theme="light"] .site-header__access:hover { color: var(--magenta-cta); }
 .site-header__actions { display: flex; align-items: center; gap: 12px; }
 .site-header__access { display: none; }
 .site-header__toggle {
