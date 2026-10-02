@@ -6,6 +6,12 @@
   clip-path: var(--notch);
   padding-bottom: calc(var(--section-pad) + var(--notch-depth));
 }
+/* Bloque negro tras uno blanco: punta reflejada arriba (un elemento solo tiene un clip-path) */
+.has-notch-top {
+  clip-path: var(--notch-top);
+  padding-top: calc(var(--section-pad) + var(--notch-top-depth));
+}
+.has-notch.has-notch-top { clip-path: var(--notch-both); }
 
 /* Tipografía */
 .caption {

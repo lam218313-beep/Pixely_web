@@ -1,4 +1,6 @@
 .site-footer { background: var(--ink); color: var(--text-on-ink); padding-bottom: 32px; }
+/* El pie no usa el aire de sección: solo deja sitio a la punta superior */
+.site-footer.has-notch-top { padding-top: var(--notch-top-depth); }
 .footer-cta {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   padding-block: 64px 48px;
