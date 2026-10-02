@@ -11,25 +11,34 @@ function fontsSettled(doc) {
   return Promise.race([doc.fonts.ready, new Promise((r) => setTimeout(r, FONT_WAIT_MS))]);
 }
 
+// Los títulos están ocultos hasta dividirse: si algo falla, se muestran sin animación.
+const show = (el) => { el.style.visibility = 'visible'; };
+
 export function initSplitWords(doc) {
-  return fontsSettled(doc).then(() => {
-    doc.querySelectorAll('[data-split]').forEach((el) => {
-      SplitText.create(el, {
-        type: 'words',
-        mask: 'words',
-        wordsClass: 'split-word',
-        autoSplit: true,
-        onSplit(self) {
-          gsap.set(el, { visibility: 'visible' });
-          return gsap.from(self.words, {
-            yPercent: 100,
-            duration: 0.4,
-            ease: EASE,
-            stagger: 0.04,
-            scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+  return fontsSettled(doc)
+    .then(() => {
+      doc.querySelectorAll('[data-split]').forEach((el) => {
+        try {
+          SplitText.create(el, {
+            type: 'words',
+            mask: 'words',
+            wordsClass: 'split-word',
+            autoSplit: true,
+            onSplit(self) {
+              gsap.set(el, { visibility: 'visible' });
+              return gsap.from(self.words, {
+                yPercent: 100,
+                duration: 0.4,
+                ease: EASE,
+                stagger: 0.04,
+                scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+              });
+            },
           });
-        },
+        } catch {
+          show(el);
+        }
       });
-    });
-  });
+    })
+    .catch(() => doc.querySelectorAll('[data-split]').forEach(show));
 }
