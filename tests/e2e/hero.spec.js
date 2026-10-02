@@ -50,3 +50,10 @@ test.describe('con reducir movimiento (botón)', () => {
     await expect.poll(() => page.locator('.hero__video').evaluate((v) => v.paused)).toBe(false);
   });
 });
+
+test('hero: la etiqueta del showreel es blanca y sin subrayado (no es un enlace)', async ({ page }) => {
+  await page.goto('/');
+  const label = page.locator('.hero__media-label');
+  await expect(label).toHaveCSS('color', 'rgb(255, 255, 255)');
+  await expect(label).toHaveCSS('text-decoration-line', 'none');
+});

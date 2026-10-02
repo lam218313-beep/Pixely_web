@@ -5,9 +5,10 @@
 .hero__grid { display: grid; gap: 40px; margin-top: 56px; }
 .hero__media { position: relative; border-radius: var(--radius-card); overflow: hidden; }
 .hero__video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--carbon); }
-.hero__media-label {
+/* .hero delante: gana a `.section--ink .caption` (texto atenuado) */
+.hero .hero__media-label {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  color: #fff; text-decoration: underline; text-underline-offset: 6px; white-space: nowrap;
+  color: #fff; white-space: nowrap;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), 0 0 16px rgba(0, 0, 0, 0.6);
 }
 .hero__media-toggle {
