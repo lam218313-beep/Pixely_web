@@ -37,5 +37,5 @@
   .hero__grid { grid-template-columns: 1fr 1fr; column-gap: 32px; margin-top: 60px; }
   .hero__media { position: sticky; top: calc(var(--header-h) + 40px); }
   .js-motion .hero__media { transform: rotate(-15deg); }
-  .hero__info { padding-block: 32px; }
+  .hero__info { padding-bottom: 32px; }
 }
