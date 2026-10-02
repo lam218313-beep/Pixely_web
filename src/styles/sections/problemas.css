@@ -26,7 +26,9 @@
   .problema__media img { aspect-ratio: 4 / 4.2; }
 }
 
-/* Una fila con el foco dentro sube encima de las que la tapan y anula el fundido
-   de stack-fade (estilo en línea), para que el CTA enfocado siempre se vea. */
-.problema:focus-within { z-index: 1; }
-.problema:focus-within > * { opacity: 1 !important; }
+/* Una fila con foco de teclado dentro sube encima de las que la tapan y anula el
+   fundido de stack-fade (estilo en línea), para que el CTA enfocado siempre se vea.
+   Solo :focus-visible: tras un clic con el ratón el foco se queda en el CTA y la
+   fila no debe seguir tapando a las siguientes. */
+.problema:has(:focus-visible) { z-index: 1; }
+.problema:has(:focus-visible) > * { opacity: 1 !important; }

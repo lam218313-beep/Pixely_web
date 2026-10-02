@@ -72,3 +72,26 @@ test('problemas: el CTA de una fila tapada queda visible y encima al recibir el 
     return Boolean(hit && el.contains(hit)) && getComputedStyle(el.closest('.problema__a')).opacity === '1';
   })).toBe(true);
 });
+
+test('problemas: tras pulsar con el ratón el CTA de la fila 1, la fila 2 la sigue cubriendo', async ({ page, context }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'las filas solo se apilan en escritorio');
+  context.on('page', (popup) => popup.close().catch(() => {}));
+  await page.goto('/');
+  // Pulsar con el ratón deja el foco en el CTA (abre WhatsApp en otra pestaña).
+  await page.locator('#problemas').scrollIntoViewIfNeeded();
+  const cta = page.locator('[data-cta="problema-fotos"]');
+  await cta.click();
+  await page.bringToFront();
+  expect(await cta.evaluate((el) => document.activeElement === el && document.hasFocus())).toBe(true);
+  // La fila 2 sube hasta el tope fijo, encima de la fila 1 (la 3 es la última y nunca llega a cubrirla).
+  await page.evaluate(() => {
+    const row = document.querySelectorAll('.problema')[1];
+    window.scrollTo(0, row.getBoundingClientRect().top + window.scrollY);
+  });
+  const q2 = page.locator('.problema').nth(1).locator('.problema__q');
+  await expect.poll(() => q2.evaluate((el) => {
+    const r = el.getBoundingClientRect();
+    const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+    return Boolean(hit && el.closest('.problema').contains(hit));
+  })).toBe(true);
+});
