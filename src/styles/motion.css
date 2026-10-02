@@ -2,3 +2,14 @@
 .js-motion [data-split] { visibility: hidden; }
 .js-motion [data-scramble] { opacity: 0; }
 .split-word { will-change: transform; }
+
+.cursor-dot {
+  position: fixed; left: 0; top: 0; z-index: 60;
+  width: 120px; height: 120px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--magenta); color: #fff; font-size: 2rem;
+  pointer-events: none; opacity: 0; scale: 0.6;
+  transition: opacity 0.3s, scale 0.3s var(--ease-out);
+}
+.cursor-dot.is-visible { opacity: 1; scale: 1; }
+.has-cursor, .has-cursor * { cursor: none; }
