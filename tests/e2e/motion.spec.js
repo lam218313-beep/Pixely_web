@@ -12,7 +12,9 @@ test('con movimiento: arranca GSAP, divide el titular y revela los bloques', asy
   for (let i = 0; i < count; i += 1) {
     const el = blocks.nth(i);
     if (!(await el.isVisible())) continue;
-    await el.scrollIntoViewIfNeeded();
+    // Al centro: un bloque ya visible en el último 8 % de la pantalla no pasa el
+    // inicio del revelado ('top 92%') y scrollIntoViewIfNeeded no lo movería.
+    await el.evaluate((node) => node.scrollIntoView({ block: 'center' }));
     await expect(el).toHaveCSS('opacity', '1', { timeout: 4000 });
   }
 });
