@@ -1,3 +1,6 @@
+/* Fuentes de Google Fonts servidas desde el propio sitio (sin peticiones a terceros) */
+@import '@fontsource-variable/bricolage-grotesque/opsz.css';
+@import '@fontsource-variable/albert-sans/wght.css';
 @import './tokens.css';
 @import './base.css';
 @import './components.css';

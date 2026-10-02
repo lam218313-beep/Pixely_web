@@ -13,8 +13,8 @@
   --line-ink: rgba(255, 255, 255, 0.10);
   --line-paper: #E4E4E8;
 
-  --font-display: 'Bricolage Grotesque', Arial, sans-serif;
-  --font-body: 'Albert Sans', Arial, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', Arial, sans-serif;
+  --font-body: 'Albert Sans Variable', 'Albert Sans', Arial, sans-serif;
   --fs-xl: clamp(2.5rem, 4.72vw, 5.5rem);
   --fs-l: clamp(2rem, 3.33vw, 4rem);
   --fs-m: clamp(1.6rem, 2.78vw, 3.2rem);
