@@ -13,3 +13,11 @@ describe('.vercelignore', () => {
     }
   });
 });
+
+describe('vercel.json', () => {
+  it('cachea para siempre los assets con hash', () => {
+    const { headers } = JSON.parse(readFileSync(resolve(root, 'vercel.json'), 'utf8'));
+    const assets = headers.find((h) => h.source === '/assets/(.*)');
+    expect(assets?.headers).toContainEqual({ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' });
+  });
+});
