@@ -1,0 +1,4 @@
+.js-motion [data-reveal] { opacity: 0; transform: translateY(5px); }
+.js-motion [data-split] { visibility: hidden; }
+.js-motion [data-scramble] { opacity: 0; }
+.split-word { will-change: transform; }

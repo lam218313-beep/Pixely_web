@@ -16,3 +16,9 @@ initAutoplay(document, reduced);
 initPlansNav(document, config);
 initTabs(document);
 document.documentElement.dataset.boot = 'ok';
+
+if (document.documentElement.classList.contains('js-motion')) {
+  import('./motion/index.js')
+    .then((m) => m.bootMotion(document))
+    .catch(() => document.documentElement.classList.remove('js-motion'));
+}
