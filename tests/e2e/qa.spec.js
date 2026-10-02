@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 
 test.describe('accesibilidad (WCAG 2 A/AA)', () => {
   test.use({ reducedMotion: 'reduce' });
-  for (const path of ['/', '/privacidad.html', '/terminos.html']) {
+  for (const path of ['/', '/privacidad', '/terminos']) {
     test(`sin infracciones axe en ${path}`, async ({ page }) => {
       await page.goto(path);
       const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).exclude('.cursor-dot').analyze();

@@ -23,12 +23,13 @@ for (const path of ['/brand/og.jpg', '/robots.txt', '/sitemap.xml']) {
   });
 }
 
-for (const [path, title] of [['/privacidad.html', 'Política de privacidad'], ['/terminos.html', 'Términos y condiciones']]) {
+for (const [path, title, other] of [['/privacidad', 'Política de privacidad', '/terminos'], ['/terminos', 'Términos y condiciones', '/privacidad']]) {
   test(`página legal ${path}`, async ({ page }) => {
     const res = await page.goto(path);
     expect(res.status()).toBe(200);
     await expect(page.locator('h1')).toHaveText(title);
     await expect(page.getByText('SYNTESIA LABS E.I.R.L.', { exact: false }).first()).toBeVisible();
     await expect(page.locator('a[href="/"]').first()).toBeVisible();
+    await expect(page.locator(`a[href="${other}"]`)).toBeVisible();
   });
 }

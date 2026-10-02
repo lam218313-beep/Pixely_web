@@ -33,8 +33,8 @@ test('pie: CTA gigante, contacto y datos legales', async ({ page }) => {
   await expect(footer.locator('a[href="mailto:hola@pixely.pe"]')).toBeVisible();
   await expect(footer.locator('a[href="https://www.instagram.com/pixely_pe/"]')).toBeVisible();
   await expect(footer.getByText('© 2026 Pixely · SYNTESIA LABS E.I.R.L. · RUC 20616010787')).toBeVisible();
-  await expect(footer.locator('a[href="/terminos.html"]')).toBeVisible();
-  await expect(footer.locator('a[href="/privacidad.html"]')).toBeVisible();
+  await expect(footer.locator('a[href="/terminos"]')).toBeVisible();
+  await expect(footer.locator('a[href="/privacidad"]')).toBeVisible();
 });
 
 test('pie: el CTA gigante cabe completo a 320px', async ({ page }) => {
