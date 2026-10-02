@@ -18,9 +18,9 @@
 .section--ink .caption { color: var(--text-on-ink-2); }
 .section--paper .caption { color: var(--text-on-paper-2); }
 .title-xl, .title-l, .title-m { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; }
-.title-xl { font-size: var(--fs-xl); line-height: 1.12; }
+.title-xl { font-size: var(--fs-xl); line-height: 1.2; }
 .title-l { font-size: var(--fs-l); line-height: 1.1; }
-.title-m { font-size: var(--fs-m); line-height: 1.15; }
+.title-m { font-size: var(--fs-m); line-height: 1.2; }
 .lead { font-size: var(--fs-lead); line-height: 1.45; }
 .section--ink .muted { color: var(--text-on-ink-2); }
 .section--paper .muted { color: var(--text-on-paper-2); }
