@@ -15,7 +15,7 @@
 }
 .planes__nav a[aria-current="true"] { color: #fff; background: var(--carbon-2); }
 .planes__cta { display: none; }
-.plan { display: grid; gap: 24px; padding-bottom: 72px; scroll-margin-top: calc(var(--header-h) + 72px); }
+.plan { display: grid; gap: 24px; padding-bottom: 72px; scroll-margin-top: 72px; } /* + scroll-padding-top del html (cabecera) */
 .plan__head { display: grid; gap: 8px; }
 .plan__items { grid-template-columns: 1fr; }
 .plan__item { display: grid; grid-template-columns: auto 1fr; grid-template-areas: 'num qty' 'title title' 'desc desc'; gap: 6px 12px; min-height: 160px; align-content: space-between; }
@@ -41,7 +41,7 @@
   .planes__nav a { padding: 0; background: none; border-radius: 0; font-size: 1.6rem; }
   .planes__nav a[aria-current="true"] { background: none; }
   .planes__cta { display: inline-flex; justify-self: start; }
-  .plan { padding-bottom: 140px; scroll-margin-top: calc(var(--header-h) + 40px); }
+  .plan { padding-bottom: 140px; scroll-margin-top: 40px; }
   .plan__item { min-height: 240px; padding: 32px; }
   .plan__qty { font-size: 2.6rem; }
 }

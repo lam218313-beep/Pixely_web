@@ -33,3 +33,20 @@ test('escritorio: el menú lateral sigue el plan visible', async ({ page }, info
   await expect(page.locator('[data-plan-cta]'))
     .toHaveAttribute('href', buildWhatsAppUrl(config.whatsapp, config.mensajes['plan-basic']));
 });
+
+test('planes: el ancla de un plan lo deja justo debajo de la cabecera y del menú de planes', async ({ page }, info) => {
+  await page.goto('/');
+  if (info.project.name === 'desktop') await expect.poll(() => page.evaluate(() => window.__motionReady === true), { timeout: 10000 }).toBe(true);
+  await page.locator('#planes').scrollIntoViewIfNeeded();
+  await page.locator('.planes__nav a[href="#plan-basic"]').click();
+  const gap = () => page.evaluate(() => {
+    const top = document.getElementById('plan-basic').getBoundingClientRect().top;
+    const header = document.querySelector('.site-header').getBoundingClientRect().bottom;
+    const aside = document.querySelector('.planes__aside').getBoundingClientRect();
+    // En escritorio el menú va en la columna izquierda; en móvil, fijo encima del plan.
+    const above = aside.right <= document.getElementById('plan-basic').getBoundingClientRect().left ? header : aside.bottom;
+    return Math.round(top - above);
+  });
+  await expect.poll(gap, { timeout: 5000 }).toBeGreaterThanOrEqual(0);
+  await expect.poll(gap, { timeout: 5000 }).toBeLessThanOrEqual(48);
+});
