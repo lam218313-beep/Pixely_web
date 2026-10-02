@@ -243,7 +243,7 @@ Colores prohibidos (de `2.-visual.md`): amarillo saturado, verde lima y azul cor
 
 ### 5.2 Tipografía
 
-- **Títulos:** Bricolage Grotesque, pesos 400–600. **Texto:** Albert Sans, pesos 400–600. Ambas de Google Fonts, con `preconnect` y `display=swap`.
+- **Títulos:** Bricolage Grotesque, pesos 400–600. **Texto:** Albert Sans, pesos 400–600. Ambas servidas desde el propio sitio con `@fontsource-variable` (fuentes variables, subconjunto latin, `font-display: swap`). *Decisión del 2026-10-02: sustituye a Google Fonts con `preconnect`, porque la cadena de terceros hacía inestable el FCP en Lighthouse y así el sitio no hace peticiones a terceros.*
 - **Escala fluida,** con los valores de la referencia como objetivo en escritorio:
 
 | Estilo | Tamaño |
@@ -265,6 +265,7 @@ Colores prohibidos (de `2.-visual.md`): amarillo saturado, verde lima y azul cor
 - Es un recorte (`clip-path`) en el borde inferior de cada bloque negro: un saliente centrado de unos 186 × 74 px en escritorio y unos 120 × 48 px en móvil.
 - **La silueta es propia:** se basa en la punta del globo de diálogo del logo P, no en la curva de Phenomenon.
 - Se define en un solo lugar (una variable CSS con el polígono) y se reutiliza en todas las secciones.
+- **Pestaña superior** *(decisión del 2026-10-02)*: los bloques negros que siguen a uno blanco (Planes, Ecosistema, Garantías y el pie) llevan también un recorte en el borde superior, como la referencia: la misma punta reflejada en vertical y las esquinas superiores redondeadas (40 px en escritorio, 24 px en móvil). Clase `.has-notch-top` con sus propios tokens (`--notch-top`, `--notch-top-depth`); cuando un bloque lleva las dos pestañas se usa un único polígono combinado (`--notch-both`), porque un elemento solo admite un `clip-path`. El bloque suma la profundidad de la pestaña a su padding superior para que no se recorte el contenido.
 
 ---
 
