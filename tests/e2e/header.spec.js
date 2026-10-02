@@ -23,6 +23,19 @@ test('móvil: el menú se abre y se cierra', async ({ page }, info) => {
   const toggle = page.getByRole('button', { name: 'Abrir menú' });
   await toggle.click();
   await expect(page.locator('#menu-panel')).toBeVisible();
+  await expect(page.locator('main')).toHaveAttribute('inert', '');
+  await expect(page.locator('footer')).toHaveAttribute('inert', '');
   await page.keyboard.press('Escape');
   await expect(page.locator('#menu-panel')).toBeHidden();
+  await expect(page.locator('main')).not.toHaveAttribute('inert');
+});
+
+test('el menú abierto se cierra al ensanchar a escritorio', async ({ page }, info) => {
+  test.skip(info.project.name !== 'mobile');
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Abrir menú' }).click();
+  await expect(page.locator('#menu-panel')).toBeVisible();
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await expect(page.locator('#menu-panel')).toBeHidden();
+  await expect(page.locator('main')).not.toHaveAttribute('inert');
 });

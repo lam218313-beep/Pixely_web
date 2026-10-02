@@ -6,7 +6,37 @@ describe('initMenu', () => {
     document.body.className = '';
     document.body.innerHTML = `
       <button class="site-header__toggle" aria-expanded="false" aria-controls="menu-panel" aria-label="Abrir menú"></button>
-      <div id="menu-panel" hidden><a id="link" href="#planes">Planes</a></div>`;
+      <div id="menu-panel" hidden><a id="link" href="#planes">Planes</a></div>
+      <main id="main"><a href="#x">x</a></main>
+      <footer class="site-footer"><a href="#y">y</a></footer>`;
+  });
+
+  it('vuelve inertes main y footer mientras está abierto', () => {
+    const menu = initMenu(document);
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+    menu.open();
+    expect(main.inert).toBe(true);
+    expect(footer.inert).toBe(true);
+    menu.close();
+    expect(main.inert).toBe(false);
+    expect(footer.inert).toBe(false);
+  });
+
+  it('se cierra al pasar a escritorio (min-width: 1024px)', () => {
+    let onChange;
+    const original = window.matchMedia;
+    window.matchMedia = () => ({ matches: false, addEventListener: (type, fn) => { if (type === 'change') onChange = fn; } });
+    try {
+      const menu = initMenu(document);
+      const panel = document.getElementById('menu-panel');
+      menu.open();
+      onChange({ matches: true });
+      expect(panel.hidden).toBe(true);
+      expect(document.querySelector('main').inert).toBe(false);
+    } finally {
+      window.matchMedia = original;
+    }
   });
 
   it('abre y cierra con el botón', () => {
