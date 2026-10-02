@@ -3,11 +3,14 @@ export function initMenu(doc) {
   const panel = doc.querySelector('#menu-panel');
   if (!toggle || !panel) return { open() {}, close() {} };
 
+  const announce = (open) => doc.dispatchEvent(new CustomEvent('menu:toggle', { detail: { open } }));
+
   function open() {
     panel.hidden = false;
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Cerrar menú');
     doc.body.classList.add('menu-open');
+    announce(true);
   }
 
   function close() {
@@ -15,6 +18,7 @@ export function initMenu(doc) {
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Abrir menú');
     doc.body.classList.remove('menu-open');
+    announce(false);
   }
 
   toggle.addEventListener('click', () => (panel.hidden ? open() : close()));

@@ -33,4 +33,13 @@ describe('initMenu', () => {
     document.getElementById('link').click();
     expect(panel.hidden).toBe(true);
   });
+
+  it('avisa con menu:toggle al abrir y cerrar', () => {
+    const menu = initMenu(document);
+    const seen = [];
+    document.addEventListener('menu:toggle', (e) => seen.push(e.detail.open));
+    menu.open();
+    menu.close();
+    expect(seen).toEqual([true, false]);
+  });
 });

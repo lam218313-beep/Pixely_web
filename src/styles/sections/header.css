@@ -30,7 +30,8 @@
   position: fixed; inset: var(--header-h) 0 0 0;
   background: var(--ink); color: var(--text-on-ink);
   padding: 32px var(--gutter);
-  display: flex; flex-direction: column; justify-content: space-between;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
+  overflow-y: auto; overscroll-behavior: contain;
 }
 .menu-panel[hidden] { display: none; }
 .menu-panel ul { display: grid; gap: 8px; }

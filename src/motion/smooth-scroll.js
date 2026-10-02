@@ -8,5 +8,7 @@ export function initSmoothScroll(gsap, ScrollTrigger) {
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
+  // Con el menú abierto la página de fondo no se desplaza.
+  document.addEventListener('menu:toggle', (e) => (e.detail.open ? lenis.stop() : lenis.start()));
   return lenis;
 }
