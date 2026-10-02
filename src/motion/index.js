@@ -8,6 +8,7 @@ import { initReveal } from './reveal.js';
 import { initSplitWords } from './split-words.js';
 import { initScramble } from './scramble.js';
 import { initTiltMedia } from './tilt-media.js';
+import { initStackFade } from './stack-fade.js';
 import { initCursor } from './cursor.js';
 
 export function bootMotion(doc) {
@@ -20,6 +21,7 @@ export function bootMotion(doc) {
   initSplitWords(doc);
   initScramble(doc);
   initTiltMedia(doc);
+  initStackFade(doc);
   initCursor(doc);
   if (doc.fonts) doc.fonts.ready.then(() => ScrollTrigger.refresh());
   return true;

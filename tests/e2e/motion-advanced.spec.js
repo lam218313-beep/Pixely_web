@@ -33,3 +33,18 @@ test('escritorio: el cursor magenta aparece sobre "Hablemos"', async ({ page }, 
   await page.locator('.footer-cta').hover();
   await expect(page.locator('.cursor-dot')).toHaveClass(/is-visible/);
 });
+
+test('escritorio: cada fila de problemas se desvanece cuando la siguiente la cubre', async ({ page }, info) => {
+  test.skip(info.project.name !== 'desktop');
+  await page.goto('/');
+  await page.waitForFunction(() => window.__motionReady === true);
+  const firstQ = page.locator('.problema').first().locator('.problema__q');
+  const scrollRowTo = (index, viewportY) => page.evaluate(([index, viewportY]) => {
+    const row = document.querySelectorAll('.problema')[index];
+    window.scrollTo(0, row.getBoundingClientRect().top + window.scrollY - viewportY);
+  }, [index, viewportY]);
+  await scrollRowTo(1, 2000);
+  await expect.poll(() => firstQ.evaluate((el) => Number(getComputedStyle(el).opacity))).toBeGreaterThan(0.95);
+  await scrollRowTo(1, 0);
+  await expect.poll(() => firstQ.evaluate((el) => Number(getComputedStyle(el).opacity)), { timeout: 5000 }).toBeLessThan(0.05);
+});
