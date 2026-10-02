@@ -6,7 +6,7 @@
 .valores { grid-template-columns: 1fr; }
 .valor { display: grid; gap: 10px; align-content: start; min-height: 200px; }
 .valor__num { color: var(--magenta-cta); font-family: var(--font-display); font-weight: 600; } /* #EB0C6E sobre blanco da 4,37:1; #D90B66 da 5,0:1 */
-.valor h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; }
+.valor h3 { font-family: var(--font-display); font-size: var(--fs-s); line-height: 1.2; font-weight: 500; }
 
 @media (min-width: 768px) {
   .valores { grid-template-columns: repeat(2, 1fr); }

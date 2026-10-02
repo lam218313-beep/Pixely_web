@@ -1,7 +1,7 @@
 .partners__grid { display: grid; gap: 56px; }
 .partners__copy { display: grid; gap: 28px; justify-items: start; }
 .partners__features { grid-template-columns: 1fr; width: 100%; }
-.partners__features h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; margin-bottom: 6px; }
+.partners__features h3 { font-family: var(--font-display); font-size: var(--fs-s); font-weight: 500; margin-bottom: 6px; }
 .partners__devices { position: relative; min-height: 320px; }
 .device--laptop { width: 88%; }
 .device--laptop .device__screen { aspect-ratio: 16 / 10; border: 10px solid var(--carbon-2); border-radius: 14px 14px 0 0; background: var(--carbon); overflow: hidden; }

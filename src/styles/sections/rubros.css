@@ -2,13 +2,18 @@
 .rubros__grid { grid-template-columns: repeat(2, 1fr); }
 .rubro { position: relative; display: grid; align-content: end; gap: 12px; min-height: 200px; overflow: hidden; }
 .rubro__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
-.rubro__name { position: relative; z-index: 1; font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; line-height: 1.2; transition: color 0.3s; }
+.rubro__name { position: relative; z-index: 1; font-family: var(--font-display); font-size: var(--fs-s); font-weight: 500; line-height: 1.2; transition: color 0.3s; }
 .rubro--text { gap: 8px; }
 .rubro--cta { padding: 0; }
 .rubro__cta { display: grid; align-content: end; gap: 8px; height: 100%; padding: 24px; background: var(--ink); color: #fff; transition: background-color 0.3s; }
 .rubro__cta:hover, .rubro__cta:focus-visible { background: var(--magenta-cta); }
 .rubro__cta .caption { color: rgba(255, 255, 255, 0.8); }
 .rubro__cta:hover .caption, .rubro__cta:focus-visible .caption { color: #fff; }
+
+@media (max-width: 374px) {
+  .rubro { padding: 16px; }
+  .rubro__name { font-size: 1.25rem; }
+}
 
 @media (min-width: 1024px) {
   .rubros__grid { grid-template-columns: repeat(4, 1fr); }
