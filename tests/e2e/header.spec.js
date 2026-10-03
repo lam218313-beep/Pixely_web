@@ -7,7 +7,14 @@ test('la cabecera muestra el logo y el CTA de WhatsApp', async ({ page }) => {
   await expect(cta).toBeVisible();
   await expect(cta).toHaveAttribute('href', /^https:\/\/wa\.me\/51949268607\?text=/);
   await expect(cta).toHaveCSS('background-color', 'rgb(217, 11, 102)');
-  await expect(page.locator('.site-header__access')).toBeHidden();
+});
+
+test('el acceso a Pixely Partners es un enlace siempre disponible', async ({ page }, info) => {
+  await page.goto('/');
+  const access = page.locator('.site-header__access');
+  await expect(access).toHaveAttribute('href', 'https://partners.pixely.pe');
+  if (info.project.name === 'desktop') await expect(access).toBeVisible();
+  else await expect(page.locator('.menu-panel a[href="https://partners.pixely.pe"]')).toHaveCount(1);
 });
 
 test('escritorio: anclas visibles y sin botón de menú', async ({ page }, info) => {
