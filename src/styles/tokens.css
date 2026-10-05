@@ -1,21 +1,20 @@
 :root {
-  /* Sistema Noche, the same tokens as Pixely Partners (frontend/app/src/styles.css in the Partners repo):
-     layered blacks, white text, pink only for what needs attention. The "paper" sections are the
-     raised layer (card) instead of white, so ink and paper still alternate. */
+  /* Sistema Noche with the brand pair: black sections and magenta (#EB0C6E, the logo's color) sections.
+     One pink everywhere. On magenta, text is black; pink accents there turn black/white. */
   --ink: #0A0A0C;
   --carbon: #16161B;
   --carbon-2: #1F1F26;
-  --paper: #16161B;
-  --mist: #1F1F26;
+  --paper: #EB0C6E;
+  --mist: #0A0A0C;
   --magenta: #EB0C6E;
-  --magenta-cta: #D90B66;
-  --magenta-text: #FF85C3;
+  --magenta-cta: #EB0C6E;
+  --magenta-text: #EB0C6E;
   --text-on-ink: #FFFFFF;
   --text-on-ink-2: #B4B4BE;
-  --text-on-paper: #FFFFFF;
-  --text-on-paper-2: #B4B4BE;
+  --text-on-paper: #0A0A0C;
+  --text-on-paper-2: #0A0A0C;
   --line-ink: #26262E;
-  --line-paper: #26262E;
+  --line-paper: rgba(10, 10, 12, 0.28);
 
   --font-display: 'Unbounded Variable', 'Unbounded', 'Manrope Variable', system-ui, sans-serif;
   --font-body: 'Manrope Variable', 'Manrope', system-ui, sans-serif;

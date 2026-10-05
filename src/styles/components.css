@@ -2,6 +2,8 @@
 .section { position: relative; padding-block: var(--section-pad); }
 .section--ink { background: var(--ink); color: var(--text-on-ink); }
 .section--paper { background: var(--paper); color: var(--text-on-paper); }
+/* On magenta, the pinks become white (big accents, dots) and black (small text). */
+.section--paper { --magenta: #FFFFFF; --magenta-text: var(--ink); }
 .has-notch {
   clip-path: var(--notch);
   padding-bottom: calc(var(--section-pad) + var(--notch-depth));
@@ -58,9 +60,10 @@
 .section--ink .btn--ghost { background: var(--carbon-2); color: #fff; }
 .section--ink .btn--ghost::before { background: #fff; }
 .section--ink .btn--ghost:hover { color: var(--ink); }
-.section--paper .btn--ghost { background: var(--mist); color: var(--ink); }
+.section--paper .btn--primary { background: var(--ink); color: #fff; }
+.section--paper .btn--ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
 .section--paper .btn--ghost::before { background: var(--ink); }
-.section--paper .btn--ghost:hover { color: #fff; }
+.section--paper .btn--ghost:hover, .section--paper .btn--ghost:focus-visible { color: #fff; }
 .btn--sm { min-height: 40px; padding: 0 16px; font-size: 0.75rem; }
 
 /* Pantallas muy estrechas: el texto del botón puede partirse antes que desbordar */

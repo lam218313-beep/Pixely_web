@@ -8,8 +8,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--text-on-paper);
+  background: var(--paper);   /* shows through the notches cut into the black sections */
+  color: var(--text-on-ink);
   font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: 1.5;
