@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test('la cabecera muestra el logo y el CTA de WhatsApp', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('link', { name: 'Pixely — inicio' })).toBeVisible();
+  await expect(page.locator('.site-header__logo')).toHaveText('pixely.');
   const cta = page.locator('.site-header [data-cta="header"]');
   await expect(cta).toBeVisible();
   await expect(cta).toHaveAttribute('href', /^https:\/\/wa\.me\/51949268607\?text=/);
