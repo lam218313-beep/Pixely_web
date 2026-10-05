@@ -1,0 +1,69 @@
+/* Vitrina: real Partners screens in a phone or a laptop, on a dark stage with a pink glow. */
+.vitrina {
+  position: relative; display: grid; justify-items: center; gap: 18px; margin: 0;
+  padding: clamp(28px, 5vw, 56px) 20px 24px; border-radius: var(--radius-card); overflow: hidden; isolation: isolate;
+  background:
+    radial-gradient(60% 55% at 50% 38%, rgba(235, 12, 110, 0.20), transparent 70%),
+    radial-gradient(120% 80% at 50% 120%, rgba(255, 255, 255, 0.05), transparent 60%),
+    var(--ink);
+  border: 1px solid var(--line-ink);
+}
+.vitrina::before {   /* faint grid, like a studio floor */
+  content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0.35;
+  background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px; mask-image: radial-gradient(70% 70% at 50% 45%, #000, transparent);
+}
+
+.vitrina__device { position: relative; filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 40px rgba(235, 12, 110, 0.12)); }
+.vitrina__screen { position: relative; overflow: hidden; background: #0A0A0C; container-type: inline-size; }
+.vitrina__screen::after {   /* glass reflection */
+  content: ''; position: absolute; inset: 0; z-index: 5; pointer-events: none;
+  background: linear-gradient(115deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.02) 28%, transparent 42%);
+}
+
+/* Phone */
+.vitrina__device--phone { width: min(78%, 330px); padding: 9px; border-radius: 52px; background: linear-gradient(160deg, #3a3a44, #121216 40%, #26262e); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.14); }
+.vitrina__device--phone .vitrina__screen { aspect-ratio: 412 / 839; border-radius: 43px; }
+.vitrina__device--phone::before {   /* camera island */
+  content: ''; position: absolute; z-index: 6; top: 19px; left: 50%; width: 28%; height: 22px; transform: translateX(-50%);
+  border-radius: 999px; background: #000;
+}
+
+/* Laptop */
+.vitrina__device--laptop { width: 100%; }
+.vitrina__device--laptop .vitrina__screen { aspect-ratio: 16 / 10; border: 10px solid #1b1b20; border-bottom-width: 14px; border-radius: 18px 18px 6px 6px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06); }
+.vitrina__base { height: 14px; margin-inline: -7%; border-radius: 0 0 16px 16px; background: linear-gradient(#2a2a32, #121216); box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset; }
+.vitrina__base::after { content: ''; display: block; width: 16%; height: 5px; margin: 0 auto; border-radius: 0 0 6px 6px; background: #0e0e12; }
+
+/* Laptop + phone together */
+.vitrina--duo { padding-bottom: 56px; }
+.vitrina--duo .vitrina__device--laptop { width: 88%; justify-self: start; }
+.vitrina--duo .vitrina__device--phone { position: absolute; right: 5%; bottom: 40px; width: min(30%, 210px); padding: 6px; border-radius: 34px; }
+.vitrina--duo .vitrina__device--phone .vitrina__screen { border-radius: 28px; }
+.vitrina--duo .vitrina__device--phone::before { top: 12px; height: 14px; }
+
+/* Screens, finger, touches */
+.vitrina__still, .vitrina__layer { position: absolute; inset: 0; }
+.vitrina__still { width: 100%; height: auto; }
+.vitrina__img { position: absolute; top: 0; left: 0; width: 100%; height: auto; will-change: transform; }
+.vitrina__pie { position: absolute; left: 0; bottom: 0; width: 100%; height: auto; z-index: 2; }
+.vitrina__finger {
+  position: absolute; z-index: 8; top: 0; left: 0; width: 46px; height: 46px; margin: -23px 0 0 -23px; opacity: 0; pointer-events: none;
+  border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.55), rgba(255,255,255,0.18) 60%, transparent 72%);
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.65), 0 8px 24px rgba(0,0,0,0.45); backdrop-filter: blur(2px);
+}
+.vitrina__ripple { position: absolute; z-index: 7; width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--magenta); pointer-events: none; }
+.vitrina__mark { position: absolute; z-index: 3; border-radius: 22px; border: 2px solid var(--magenta); box-shadow: 0 0 0 6px rgba(235, 12, 110, 0.15); pointer-events: none; }
+
+/* The line that narrates each step */
+.vitrina__label {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 36px; padding: 8px 16px; border-radius: 999px;
+  background: rgba(31, 31, 38, 0.9); border: 1px solid var(--line-ink); color: #fff;
+  font-family: var(--font-body); font-size: 0.85rem; font-weight: 800; text-align: center;
+}
+.vitrina__label::before { content: ''; width: 8px; height: 8px; flex: none; border-radius: 50%; background: var(--magenta); box-shadow: 0 0 0 5px rgba(235, 12, 110, 0.18); }
+.vitrina__label:empty { visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vitrina__finger, .vitrina__ripple { display: none; }
+}

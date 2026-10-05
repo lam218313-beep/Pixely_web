@@ -7,7 +7,7 @@
   -webkit-mask: var(--g-icon) center / 100% 100% no-repeat; mask: var(--g-icon) center / 100% 100% no-repeat;
 }
 .garantia--si .garantia__icon {
-  color: var(--magenta);
+  color: var(--magenta-text);
   --g-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath fill-rule='evenodd' d='M14 1a13 13 0 100 26 13 13 0 000-26zm0 2a11 11 0 110 22 11 11 0 010-22zm5.7 7.3a1 1 0 010 1.4l-6.5 6.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 011.4-1.4l2.8 2.8 5.8-5.8a1 1 0 011.4 0z'/%3E%3C/svg%3E");
 }
 .garantia--no .garantia__icon {

@@ -6,6 +6,7 @@ import { initHeaderTheme } from './ui/header-theme.js';
 import { initAutoplay } from './ui/autoplay.js';
 import { initPlansNav } from './ui/plans-nav.js';
 import { initTabs } from './ui/tabs.js';
+import { initVitrinas } from './ui/vitrina.js';
 
 applyFlags(document, config.flags);
 applyCtaLinks(document, config);
@@ -15,6 +16,7 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 initAutoplay(document, reduced);
 initPlansNav(document, config);
 initTabs(document);
+initVitrinas(document, reduced);
 document.documentElement.dataset.boot = 'ok';
 
 if (document.documentElement.classList.contains('js-motion')) {

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('carga con título, idioma y clase js', async ({ page }) => {
   await page.goto('/');
-  await expect(page).toHaveTitle('Pixely — Publicidad que vende | Publicidad con IA para negocios');
+  await expect(page).toHaveTitle('Pixely — Publicidad que vende | Publicidad estratégica con datos de tu mercado');
   await expect(page.locator('html')).toHaveAttribute('lang', 'es-PE');
   await expect(page.locator('html')).toHaveClass(/(^|\s)js(\s|$)/);
 });

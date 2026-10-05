@@ -30,7 +30,7 @@
 .lead { font-size: var(--fs-lead); line-height: 1.45; }
 .section--ink .muted { color: var(--text-on-ink-2); }
 .section--paper .muted { color: var(--text-on-paper-2); }
-.accent { color: var(--magenta); }
+.accent { color: var(--magenta); }   /* big titles: the strong pink reads well (large text) */
 
 /* Botones: un círculo se expande desde el centro al pasar el cursor */
 .btn {

@@ -7,8 +7,9 @@ test('hero: titular, CTA, insignia y números', async ({ page }) => {
   const hero = page.locator('#inicio');
   await expect(hero.locator('h1')).toHaveText('Tu publicidad no sale de la ocurrencia de un diseñador. Sale de datos reales.');
   await expect(hero.locator('[data-cta="hero"]')).toHaveAttribute('href', buildWhatsAppUrl(config.whatsapp, config.mensajes.hero));
-  await expect(hero.getByText('Pixely Partners · Próximamente')).toBeVisible();
-  await expect(hero.locator('.hero__number')).toHaveText(['48', '7–14', '10', '100 %']);
+  await expect(hero.getByText('Pixely Partners · Nuevo')).toBeVisible();
+  await expect(hero.locator('.hero__number')).toHaveText(['7–14', '7', '1', '100 %']);
+  await expect(hero.locator('.hero__formats li')).toHaveText([/Investigar/, /Planificar/, /Aprobar/, /Publicar y medir/]);
   await expect(hero.locator('.hero__formats li')).toHaveCount(4);
   const clip = await hero.evaluate((el) => getComputedStyle(el).clipPath);
   expect(clip.startsWith('polygon(')).toBe(true);

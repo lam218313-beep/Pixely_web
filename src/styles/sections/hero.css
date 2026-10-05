@@ -21,7 +21,7 @@
 .hero__info { display: flex; flex-direction: column; gap: 24px; }
 .hero__formats { grid-template-columns: repeat(2, 1fr); }
 .hero__formats .cell { display: grid; gap: 6px; font-weight: 500; }
-.hero__ratio { font-family: var(--font-display); font-size: 1.5rem; color: var(--magenta); }
+.hero__ratio { font-family: var(--font-display); font-size: 1.5rem; color: var(--magenta-text); }
 .hero__stats { grid-template-columns: repeat(2, 1fr); }
 .hero__stats .cell { display: grid; gap: 8px; text-align: center; padding-block: 32px; }
 .hero__number { font-family: var(--font-display); font-size: clamp(2.25rem, 3.6vw, 3.75rem); font-weight: 500; line-height: 1; }

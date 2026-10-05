@@ -1,7 +1,7 @@
 .como__title { max-width: 24ch; margin: 16px 0 56px; }
 .pasos { display: grid; gap: 64px; }
 .paso { display: grid; gap: 24px; }
-.paso__media img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-card); }
+.paso .vitrina { width: 100%; }
 .paso__body { display: grid; gap: 16px; align-content: start; }
 .paso__meta { display: grid; }
 .paso__meta div { display: grid; gap: 4px; padding-block: 16px; border-top: 1px solid var(--line-paper); }
