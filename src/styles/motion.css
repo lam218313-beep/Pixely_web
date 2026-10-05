@@ -3,20 +3,22 @@
 .js-motion [data-scramble] { opacity: 0; }
 .split-word { will-change: transform; }
 
-/* The wrapper only moves (translate); the ball inside changes size and colour around its centre. */
-.cursor-dot { position: fixed; left: 0; top: 0; z-index: 9999; width: 0; height: 0; pointer-events: none; opacity: 0; transition: opacity 0.2s; }
-.cursor-dot__ball {
-  position: absolute; left: -60px; top: -60px; width: 120px; height: 120px; border-radius: 50%;
+.cursor-dot {
+  position: fixed; left: 0; top: 0; z-index: 60;
+  width: 120px; height: 120px; border-radius: 50%;
   display: grid; place-items: center;
   background: var(--magenta); color: #fff; font-size: 2rem;
-  scale: 0.15; transition: scale 0.35s var(--ease-out), background-color 0.25s, opacity 0.2s;
+  pointer-events: none; opacity: 0; scale: 0.6;
+  transition: opacity 0.3s, scale 0.3s var(--ease-out);
 }
-.cursor-dot__ball span { opacity: 0; transition: opacity 0.2s; }
-.cursor-dot.is-visible { opacity: 1; }
-.cursor-dot.is-hover .cursor-dot__ball { scale: 0.36; opacity: 0.55; }
-.cursor-dot.is-big .cursor-dot__ball { scale: 1; }
-.cursor-dot.is-big .cursor-dot__ball span { opacity: 1; }
-.cursor-dot.is-down .cursor-dot__ball { scale: 0.11; }
-.cursor-dot.is-big.is-down .cursor-dot__ball { scale: 0.9; }
-.cursor-dot.is-dark .cursor-dot__ball { background: var(--ink); }
-.has-cursor, .has-cursor * { cursor: none !important; }
+.cursor-dot.is-visible { opacity: 1; scale: 1; }
+/* Brand cursor (mouse/trackpad): a native cursor image, so it moves with zero delay.
+   Pink dot over black, black dot over magenta; bigger and see-through over anything clickable. */
+@media (hover: hover) and (pointer: fine) {
+  html { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23EB0C6E' fill-opacity='1'/%3E%3C/svg%3E") 10 10, auto !important; }
+  .section--paper { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='%230A0A0C' fill-opacity='1'/%3E%3C/svg%3E") 10 10, auto !important; }
+  :is(a, button, summary, [role="tab"], label) { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='20' fill='%23EB0C6E' fill-opacity='0.55'/%3E%3C/svg%3E") 22 22, pointer !important; }
+  .section--paper :is(a, button, summary, [role="tab"], label):not(.btn, .rubro__cta, .garantia__link) { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='20' fill='%230A0A0C' fill-opacity='0.55'/%3E%3C/svg%3E") 22 22, pointer !important; }
+  :is(.section--ink, .site-header, .menu-panel) .btn--primary { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='20' fill='%230A0A0C' fill-opacity='0.55'/%3E%3C/svg%3E") 22 22, pointer !important; }
+  html .has-cursor, html .has-cursor * { cursor: none !important; }
+}
