@@ -10,6 +10,12 @@ export const RULES = [
   { id: 'plantilla', re: /\bplantillas?\b/i },
   { id: 'como-todos', re: /\bcomo todos\b/i },
   { id: 'community-manager', re: /community\s+manager/i },
+  // Narrativa: se vende el proceso estratégico, no la herramienta (octubre 2026).
+  { id: 'ia', re: /\bIA\b|inteligencia artificial|\bAI\b/ },
+  { id: 'lab-audiencia', re: /lab de audiencia/i },
+  { id: 'google-drive', re: /google drive/i },
+  { id: 'manual-de-marca', re: /manual de marca/i },
+  { id: 'campana-por-producto', re: /\bcampañas?\b/i },
 ];
 
 function extractText(doc) {

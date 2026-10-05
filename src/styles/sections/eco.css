@@ -2,13 +2,13 @@
 .tabs__list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
 .no-js .tabs__list { display: none; }
 .tabs__tab {
-  padding: 12px 18px; border-radius: 4px;
+  padding: 12px 18px; border-radius: 999px;
   font-family: var(--font-display); font-size: var(--fs-caption); font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--text-on-ink-2); border: 1px solid var(--line-ink);
   transition: color 0.3s, background-color 0.3s;
 }
-.tabs__tab[aria-selected="true"] { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.tabs__tab[aria-selected="true"] { background: #fff; color: var(--ink); border-color: #fff; }
 .tabs__panel { display: grid; gap: 32px; }
 .no-js .tabs__panel + .tabs__panel { margin-top: 64px; }
 .tabs__panel:not([hidden]) { animation: eco-fade 0.4s var(--ease-out); }
