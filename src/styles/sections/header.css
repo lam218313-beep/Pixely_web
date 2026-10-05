@@ -6,7 +6,9 @@
 }
 .site-header[data-theme="light"] { background: var(--paper); color: var(--text-on-paper); border-bottom-color: var(--line-paper); }
 .site-header__bar { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.site-header__logo img { width: 24px; height: auto; }
+/* The brand mark, as in Pixely Partners: the word with a pink dot. */
+.wordmark { font-family: var(--font-display); font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: -0.01em; color: inherit; }
+.wordmark__dot { color: var(--magenta); }
 .site-header__nav { display: none; }
 .site-header__nav ul { display: flex; gap: 40px; }
 .site-header__nav a, .site-header__access {
@@ -44,5 +46,5 @@ body.menu-open { overflow: hidden; }
   .site-header__nav { display: block; }
   .site-header__access:not([hidden]) { display: inline; }
   .site-header__toggle { display: none; }
-  .site-header__logo img { width: 28px; }
+  .site-header__logo .wordmark { font-size: 24px; }
 }
