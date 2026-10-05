@@ -51,6 +51,12 @@ for name in sorted(STILL):
             r = img.resize((w, round(H * w / W)), Image.LANCZOS)
             r.save(f'{OUT}/{name}{tag}-{w}.webp', quality=82)
             r.save(f'{OUT}/{name}{tag}-{w}.jpg', quality=82, optimize=True, progressive=True)
-    mask.resize((big, round(H * big / W)), Image.LANCZOS).save(f'{OUT}/{name}-mask.png', optimize=True)
+    # Front: what sits in front of the screen inside its box (hands, bezel, glare), with the screen cut out.
+    # Laid over the live walk-through instead of masking it: a static image is far cheaper than a mask.
+    box = (x0, y0, x1 + 1, y1 + 1)
+    front = clean.crop(box).convert('RGBA')
+    front.putalpha(Image.fromarray(255 - np.asarray(mask.crop(box))))
+    fw = round(sw * big / W)
+    front.resize((fw, round(sh * big / W)), Image.LANCZOS).save(f'{OUT}/{name}-frente.webp', quality=88, method=6)
     print('✓', name, boxes[name])
 json.dump(boxes, open('src/ui/escenas.json', 'w'), indent=2)
