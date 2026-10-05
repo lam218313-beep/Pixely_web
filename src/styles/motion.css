@@ -3,13 +3,20 @@
 .js-motion [data-scramble] { opacity: 0; }
 .split-word { will-change: transform; }
 
-.cursor-dot {
-  position: fixed; left: 0; top: 0; z-index: 60;
-  width: 120px; height: 120px; border-radius: 50%;
+/* The wrapper only moves (translate); the ball inside changes size and colour around its centre. */
+.cursor-dot { position: fixed; left: 0; top: 0; z-index: 9999; width: 0; height: 0; pointer-events: none; opacity: 0; transition: opacity 0.2s; }
+.cursor-dot__ball {
+  position: absolute; left: -60px; top: -60px; width: 120px; height: 120px; border-radius: 50%;
   display: grid; place-items: center;
   background: var(--magenta); color: #fff; font-size: 2rem;
-  pointer-events: none; opacity: 0; scale: 0.6;
-  transition: opacity 0.3s, scale 0.3s var(--ease-out);
+  scale: 0.15; transition: scale 0.35s var(--ease-out), background-color 0.25s, opacity 0.2s;
 }
-.cursor-dot.is-visible { opacity: 1; scale: 1; }
-.has-cursor, .has-cursor * { cursor: none; }
+.cursor-dot__ball span { opacity: 0; transition: opacity 0.2s; }
+.cursor-dot.is-visible { opacity: 1; }
+.cursor-dot.is-hover .cursor-dot__ball { scale: 0.36; opacity: 0.55; }
+.cursor-dot.is-big .cursor-dot__ball { scale: 1; }
+.cursor-dot.is-big .cursor-dot__ball span { opacity: 1; }
+.cursor-dot.is-down .cursor-dot__ball { scale: 0.11; }
+.cursor-dot.is-big.is-down .cursor-dot__ball { scale: 0.9; }
+.cursor-dot.is-dark .cursor-dot__ball { background: var(--ink); }
+.has-cursor, .has-cursor * { cursor: none !important; }

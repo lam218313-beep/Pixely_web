@@ -26,12 +26,18 @@ test('móvil: la escena del hero no se inclina', async ({ page }, info) => {
   expect(await rotation(page.locator('[data-tilt]'))).toBe(0);
 });
 
-test('escritorio: el cursor magenta aparece sobre "Hablemos"', async ({ page }, info) => {
+test('escritorio: el cursor de marca: rosa sobre negro, negro sobre magenta, flecha sobre "Hablemos"', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop');
   await page.goto('/');
   await page.waitForFunction(() => window.__motionReady === true);
+  const dot = page.locator('.cursor-dot');
+  await page.locator('#planes-title').hover();
+  await expect(dot).toHaveClass(/is-visible/);
+  await expect(dot).not.toHaveClass(/is-dark/);
+  await page.locator('#rubros h2').hover();
+  await expect(dot).toHaveClass(/is-dark/);
   await page.locator('.footer-cta').hover();
-  await expect(page.locator('.cursor-dot')).toHaveClass(/is-visible/);
+  await expect(dot).toHaveClass(/is-big/);
 });
 
 test('escritorio: cada fila de problemas se desvanece cuando la siguiente la cubre', async ({ page }, info) => {
