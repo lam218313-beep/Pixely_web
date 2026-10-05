@@ -1,11 +1,12 @@
 # Publicación — pixely.pe
 
-- **Producción (Vercel):** https://pixely-web.vercel.app — proyecto `pixely-web`, cuenta `lam218313-beep`. Publicado el 2026-10-02 desde el commit `9e018a0`.
-- **Republicar:** desde la raíz del repo, `npx vercel@62.1.0 deploy --prod` (el repo ya está enlazado en `.vercel/`, ignorado por git).
+- **Producción (Vercel):** https://pixely.pe — proyecto `pixely-web`, cuenta `lam218313-beep`.
+- **Publicación automática:** el proyecto está conectado al repositorio de GitHub `lam218313-beep/Pixely_web`. Cada push a `main` se publica solo en producción; las demás ramas generan una vista previa.
+- **Publicación manual (solo si hiciera falta):** desde la raíz del repo, `npx vercel@62.1.0 deploy --prod`.
 
 ## Dominio pixely.pe (GoDaddy → Vercel)
 
-Los dominios `pixely.pe` y `www.pixely.pe` ya están añadidos al proyecto. Falta cambiar el DNS en GoDaddy (los nameservers siguen siendo los de GoDaddy, `ns35/ns36.domaincontrol.com`).
+Los dominios `pixely.pe` y `www.pixely.pe` ya están añadidos al proyecto. El DNS de GoDaddy ya apunta a Vercel (comprobado el 2026-10-05). Referencia de los valores:
 
 Valores exactos que pidió Vercel el 2026-10-02:
 
