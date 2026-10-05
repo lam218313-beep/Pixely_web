@@ -23,7 +23,7 @@ test('historia: relato, imagen y 5 valores', async ({ page }) => {
   await expect(sec.locator('.valor h3')).toHaveText([
     'Resultados medibles', 'Accesibilidad real', 'Coherencia de marca', 'Velocidad de ejecución', 'Transparencia operativa',
   ]);
-  const img = sec.locator('img');
+  const img = sec.locator('.escena__foto');
   await img.scrollIntoViewIfNeeded();
   await expect.poll(() => img.evaluate((i) => i.naturalWidth > 0)).toBe(true);
 });

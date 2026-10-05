@@ -39,7 +39,7 @@ test.describe('sin JavaScript', () => {
 
 test('los recorridos se mueven solos: el celular de Validar cambia de pantalla', async ({ page }) => {
   await page.goto('/');
-  const fig = page.locator('[data-vitrina="validar"]');
+  const fig = page.locator('#como-funciona [data-vitrina="validar"]');
   await fig.scrollIntoViewIfNeeded();
   const shown = () => fig.locator('.vitrina__layer').last().getAttribute('data-shot');
   await expect.poll(shown, { timeout: 8000 }).toBe('m-validar');
@@ -51,7 +51,7 @@ test.describe('con reducir movimiento', () => {
   test.use({ reducedMotion: 'reduce' });
   test('los recorridos no muestran el dedo', async ({ page }) => {
     await page.goto('/');
-    const fig = page.locator('[data-vitrina="plan"]');
+    const fig = page.locator('#como-funciona [data-vitrina="plan"]');
     await fig.scrollIntoViewIfNeeded();
     await expect(fig.locator('.vitrina__finger')).toBeHidden();
   });

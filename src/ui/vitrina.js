@@ -100,7 +100,7 @@ class Player {
     this.steps = steps;
     this.reduced = reduced;
     this.screen = fig.querySelector('.vitrina__screen');
-    this.label = fig.closest('.vitrina')?.querySelector('.vitrina__label');
+    this.label = fig.closest('.vitrina')?.querySelector('.vitrina__label') ?? null;
     this.visible = false;
     this.waiters = [];
     this.layer = null;
@@ -287,7 +287,7 @@ class Player {
 export function initVitrinas(doc, reduced) {
   const figs = [...doc.querySelectorAll('[data-vitrina]')];
   if (!figs.length || !('animate' in Element.prototype)) return [];
-  const players = figs.map((fig) => {
+  const players = figs.filter((fig) => !(reduced && fig.closest('.escena'))).map((fig) => {
     const steps = SCENES[fig.dataset.vitrina];
     if (!steps) return null;
     // In a laptop + phone pair, only the phone narrates.
@@ -295,6 +295,7 @@ export function initVitrinas(doc, reduced) {
     const player = new Player(fig, steps, reduced);
     fig.querySelector('.vitrina__still')?.remove();
     fig.classList.add('is-live');
+    fig.closest('.escena')?.classList.add('is-live');
     player.run();
     return player;
   }).filter(Boolean);

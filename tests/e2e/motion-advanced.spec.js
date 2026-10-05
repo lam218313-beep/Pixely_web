@@ -7,7 +7,7 @@ const rotation = (el) => el.evaluate((node) => {
   return Math.round((Math.atan2(b, a) * 180) / Math.PI);
 });
 
-test('escritorio: el showreel empieza a −15° y se endereza', async ({ page }, info) => {
+test('escritorio: la escena del hero empieza a −15° y se endereza', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop');
   await page.goto('/');
   const media = page.locator('[data-tilt]');
@@ -19,7 +19,7 @@ test('escritorio: el showreel empieza a −15° y se endereza', async ({ page },
   await expect.poll(() => rotation(media), { timeout: 5000 }).toBe(0);
 });
 
-test('móvil: el showreel no se inclina', async ({ page }, info) => {
+test('móvil: la escena del hero no se inclina', async ({ page }, info) => {
   test.skip(info.project.name !== 'mobile');
   await page.goto('/');
   await page.waitForFunction(() => window.__motionReady === true);

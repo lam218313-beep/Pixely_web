@@ -110,15 +110,17 @@
         </div>
         <div class="hero__grid">
           <div class="hero__media-col" data-tilt-wrap>
-            <figure class="hero__media" data-tilt>
-              <video class="hero__video" data-autoplay muted loop playsinline preload="metadata" poster="/media/showreel-poster.jpg" width="1280" height="960" aria-label="Showreel con piezas de producción Pixely">
-                <source src="/media/showreel.webm" type="video/webm">
-                <source src="/media/showreel.mp4" type="video/mp4">
-                <track kind="captions" src="/media/showreel.vtt" srclang="es" label="Español">
-              </video>
-              <figcaption class="caption hero__media-label">Producción Pixely ▸</figcaption>
-              <button class="hero__media-toggle" type="button" data-video-toggle aria-pressed="false"><span aria-hidden="true" data-video-toggle-icon>❚❚</span><span class="visually-hidden" data-video-toggle-label>Pausar showreel</span></button>
+            <div class="hero__media" data-tilt>
+            <figure class="escena escena--laptop" style="--ar:1600/900;--x:33.2%;--y:25.156%;--w:34.95%;--h:45.867%">
+              <picture>
+                <source type="image/webp" srcset="/media/escenas/escena-laptop-still-800.webp 800w, /media/escenas/escena-laptop-still-1600.webp 1600w" sizes="(min-width: 1024px) 45vw, 100vw">
+                <img class="escena__foto" src="/media/escenas/escena-laptop-still-800.jpg" srcset="/media/escenas/escena-laptop-still-800.jpg 800w, /media/escenas/escena-laptop-still-1600.jpg 1600w" sizes="(min-width: 1024px) 45vw, 100vw" width="1600" height="900" loading="lazy" decoding="async" alt="Pixely Partners abierto en una laptop: el plan del mes de una boutique">
+              </picture>
+              <div class="escena__pantalla" style="-webkit-mask-image:url(/media/escenas/escena-laptop-mask.png);mask-image:url(/media/escenas/escena-laptop-mask.png)" aria-hidden="true">
+                <div class="escena__caja"><div class="escena__screen" data-vitrina="partners-pc"><div class="vitrina__screen"></div></div></div>
+              </div>
             </figure>
+          </div>
           </div>
           <div class="hero__info">
             <p class="lead" data-reveal>Leemos tu mercado todos los días, lo convertimos en una estrategia y en un plan de contenido que tú apruebas pieza por pieza. Todo el proceso, a la vista y en tu celular.</p>
@@ -217,11 +219,15 @@
               <p class="lead">Radar Pixely lee tu nicho y a tu competencia de forma continua: qué publican, qué les responde la gente, qué precios manejan y cómo los califican. Cada pieza nace de esa data, no de una corazonada.</p>
               <a class="btn btn--primary" data-cta="problema-fotos" href="https://wa.me/51949268607"><span class="btn__label">Quiero publicar con datos de mi mercado</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </div>
-            <picture class="problema__media">
-              <source type="image/avif" srcset="/media/problema-fotos-800.avif 800w, /media/problema-fotos-1600.avif 1600w" sizes="(min-width: 1024px) 25vw, 100vw">
-              <source type="image/webp" srcset="/media/problema-fotos-800.webp 800w, /media/problema-fotos-1600.webp 1600w" sizes="(min-width: 1024px) 25vw, 100vw">
-              <img src="/media/problema-fotos-800.jpg" srcset="/media/problema-fotos-800.jpg 800w, /media/problema-fotos-1600.jpg 1600w" sizes="(min-width: 1024px) 25vw, 100vw" width="800" height="1000" loading="lazy" decoding="async" alt="Dueña de negocio a punto de fotografiar una cartera con su celular">
-            </picture>
+            <div class="problema__media"><figure class="escena escena--phone" style="--ar:1600/1200;--x:41.2%;--y:23.667%;--w:17.9%;--h:53.133%">
+              <picture>
+                <source type="image/webp" srcset="/media/escenas/escena-celular-2-still-800.webp 800w, /media/escenas/escena-celular-2-still-1600.webp 1600w" sizes="(min-width: 1024px) 45vw, 100vw">
+                <img class="escena__foto" src="/media/escenas/escena-celular-2-still-800.jpg" srcset="/media/escenas/escena-celular-2-still-800.jpg 800w, /media/escenas/escena-celular-2-still-1600.jpg 1600w" sizes="(min-width: 1024px) 45vw, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="Una mano sostiene el celular con el estudio de mercado de Radar Pixely en Partners">
+              </picture>
+              <div class="escena__pantalla" style="-webkit-mask-image:url(/media/escenas/escena-celular-2-mask.png);mask-image:url(/media/escenas/escena-celular-2-mask.png)" aria-hidden="true">
+                <div class="escena__caja"><div class="escena__screen" data-vitrina="mercado"><div class="vitrina__screen"></div></div></div>
+              </div>
+            </figure></div>
           </li>
           <li class="problema">
             <h3 class="problema__q">¿Te hace los diseños un familiar?</h3>
@@ -229,11 +235,15 @@
               <p class="lead">Diseñar no es lo mismo que hacer publicidad. Cada pieza tiene un objetivo, una estrategia detrás y un dato de tu mercado que la respalda. Y tú la ves antes de que salga.</p>
               <a class="btn btn--primary" data-cta="problema-diseno" href="https://wa.me/51949268607"><span class="btn__label">Quiero publicidad con estrategia</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </div>
-            <picture class="problema__media">
-              <source type="image/avif" srcset="/media/problema-diseno-800.avif 800w, /media/problema-diseno-1600.avif 1600w" sizes="(min-width: 1024px) 25vw, 100vw">
-              <source type="image/webp" srcset="/media/problema-diseno-800.webp 800w, /media/problema-diseno-1600.webp 1600w" sizes="(min-width: 1024px) 25vw, 100vw">
-              <img src="/media/problema-diseno-800.jpg" srcset="/media/problema-diseno-800.jpg 800w, /media/problema-diseno-1600.jpg 1600w" sizes="(min-width: 1024px) 25vw, 100vw" width="800" height="1000" loading="lazy" decoding="async" alt="Dueño de negocio eligiendo entre fotografías de producto impresas">
-            </picture>
+            <div class="problema__media"><figure class="escena escena--phone" style="--ar:1200/1600;--x:38.933%;--y:51.85%;--w:13.867%;--h:22.1%">
+              <picture>
+                <source type="image/webp" srcset="/media/escenas/escena-dueno-1-still-600.webp 600w, /media/escenas/escena-dueno-1-still-1200.webp 1200w" sizes="(min-width: 1024px) 45vw, 100vw">
+                <img class="escena__foto" src="/media/escenas/escena-dueno-1-still-600.jpg" srcset="/media/escenas/escena-dueno-1-still-600.jpg 600w, /media/escenas/escena-dueno-1-still-1200.jpg 1200w" sizes="(min-width: 1024px) 45vw, 100vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Un dueño de tienda revisa una idea del plan, con el dato de mercado que la respalda">
+              </picture>
+              <div class="escena__pantalla" style="-webkit-mask-image:url(/media/escenas/escena-dueno-1-mask.png);mask-image:url(/media/escenas/escena-dueno-1-mask.png)" aria-hidden="true">
+                <div class="escena__caja"><div class="escena__screen" data-vitrina="decidir"><div class="vitrina__screen"></div></div></div>
+              </div>
+            </figure></div>
           </li>
           <li class="problema">
             <h3 class="problema__q">¿No tienes tiempo para publicar?</h3>
@@ -242,11 +252,15 @@
               <p class="source-note">Los dueños de pequeños negocios dedican entre 6 y 10 horas a la semana a crear contenido (encuestas internacionales 2025-26). <a href="https://blog.picmim.com/blog/how-much-time-small-businesses-actually-spend-on-social-media-survey-of-200-owners" target="_blank" rel="noopener">Fuente: Picmim</a>.</p>
               <a class="btn btn--primary" data-cta="problema-tiempo" href="https://wa.me/51949268607"><span class="btn__label">Quiero que publiquen por mí</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </div>
-            <picture class="problema__media">
-              <source type="image/avif" srcset="/media/problema-tiempo-800.avif 800w, /media/problema-tiempo-1600.avif 1600w" sizes="(min-width: 1024px) 25vw, 100vw">
-              <source type="image/webp" srcset="/media/problema-tiempo-800.webp 800w, /media/problema-tiempo-1600.webp 1600w" sizes="(min-width: 1024px) 25vw, 100vw">
-              <img src="/media/problema-tiempo-800.jpg" srcset="/media/problema-tiempo-800.jpg 800w, /media/problema-tiempo-1600.jpg 1600w" sizes="(min-width: 1024px) 25vw, 100vw" width="800" height="1000" loading="lazy" decoding="async" alt="Dueño de tienda atendiendo a un cliente en el mostrador">
-            </picture>
+            <div class="problema__media"><figure class="escena escena--phone" style="--ar:1600/1200;--x:39.95%;--y:16.867%;--w:20.25%;--h:61.133%">
+              <picture>
+                <source type="image/webp" srcset="/media/escenas/escena-celular-1-still-800.webp 800w, /media/escenas/escena-celular-1-still-1600.webp 1600w" sizes="(min-width: 1024px) 45vw, 100vw">
+                <img class="escena__foto" src="/media/escenas/escena-celular-1-still-800.jpg" srcset="/media/escenas/escena-celular-1-still-800.jpg 800w, /media/escenas/escena-celular-1-still-1600.jpg 1600w" sizes="(min-width: 1024px) 45vw, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="Una mano aprueba una pieza en Partners desde el celular">
+              </picture>
+              <div class="escena__pantalla" style="-webkit-mask-image:url(/media/escenas/escena-celular-1-mask.png);mask-image:url(/media/escenas/escena-celular-1-mask.png)" aria-hidden="true">
+                <div class="escena__caja"><div class="escena__screen" data-vitrina="validar"><div class="vitrina__screen"></div></div></div>
+              </div>
+            </figure></div>
           </li>
         </ol>
         <p class="source-note problemas__disclaimer">Los resultados pueden variar según el negocio, el sector y la constancia en la publicación.</p>
@@ -494,11 +508,15 @@
               <p>Nuestra misión: que cada publicación de tu negocio tenga una razón de ser, y que tú siempre sepas cuál es.</p>
             </div>
           </div>
-          <picture class="historia__media">
-            <source type="image/avif" srcset="/media/historia-800.avif 800w, /media/historia-1600.avif 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
-            <source type="image/webp" srcset="/media/historia-800.webp 800w, /media/historia-1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw">
-            <img src="/media/historia-800.jpg" srcset="/media/historia-800.jpg 800w, /media/historia-1600.jpg 1600w" sizes="(min-width: 1024px) 40vw, 100vw" width="800" height="1000" loading="lazy" decoding="async" alt="Dueño de una tienda de ropa mirando con orgullo sus productos al cierre del día">
-          </picture>
+          <div class="historia__media"><figure class="escena escena--phone" style="--ar:1200/1600;--x:45.467%;--y:42.6%;--w:12.0%;--h:19.6%">
+              <picture>
+                <source type="image/webp" srcset="/media/escenas/escena-dueno-2-still-600.webp 600w, /media/escenas/escena-dueno-2-still-1200.webp 1200w" sizes="(min-width: 1024px) 45vw, 100vw">
+                <img class="escena__foto" src="/media/escenas/escena-dueno-2-still-600.jpg" srcset="/media/escenas/escena-dueno-2-still-600.jpg 600w, /media/escenas/escena-dueno-2-still-1200.jpg 1200w" sizes="(min-width: 1024px) 45vw, 100vw" width="1200" height="1600" loading="lazy" decoding="async" alt="Un dueño de tienda mira en su celular lo que le toca revisar en Partners">
+              </picture>
+              <div class="escena__pantalla" style="-webkit-mask-image:url(/media/escenas/escena-dueno-2-mask.png);mask-image:url(/media/escenas/escena-dueno-2-mask.png)" aria-hidden="true">
+                <div class="escena__caja"><div class="escena__screen" data-vitrina="inicio"><div class="vitrina__screen"></div></div></div>
+              </div>
+            </figure></div>
         </div>
         <p class="caption historia__values-title" data-scramble>Por qué Pixely</p>
         <ul class="cells valores" data-reveal>

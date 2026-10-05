@@ -67,3 +67,23 @@
 @media (prefers-reduced-motion: reduce) {
   .vitrina__finger, .vitrina__ripple { display: none; }
 }
+
+/* Escena: a Magnific photo whose green screen plays a Partners walk-through. The still image already
+   carries a real capture (no-JS, reduced motion); when live, the masked screen box plays on top. */
+.escena { position: relative; margin: 0; border-radius: var(--radius-card); overflow: hidden; isolation: isolate; }
+.escena__foto { display: block; width: 100%; height: auto; aspect-ratio: var(--ar); }
+.escena__pantalla { position: absolute; inset: 0; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; pointer-events: none; visibility: hidden; }
+.escena.is-live .escena__pantalla { visibility: visible; }
+.escena__caja { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h); background: #0A0A0C; overflow: hidden; }
+.escena__screen { position: absolute; left: 0; right: 0; bottom: 0; }
+.escena__screen .vitrina__screen { width: 100%; border: 0; border-radius: 0; }
+.escena--phone .escena__screen .vitrina__screen { aspect-ratio: 412 / 839; }
+.escena--laptop .escena__screen { top: 0; }
+.escena--laptop .escena__screen .vitrina__screen { aspect-ratio: auto; height: 100%; }
+.escena .vitrina__screen::after { background: linear-gradient(115deg, rgba(255,255,255,0.08) 0%, transparent 35%); }
+.escena .vitrina__finger { width: 15cqw; height: 15cqw; margin: -7.5cqw 0 0 -7.5cqw; box-shadow: 0 0 0 1px rgba(255,255,255,0.7); }
+.escena .vitrina__ripple { width: 20cqw; height: 20cqw; }
+.escena .vitrina__mark { border-width: 1px; box-shadow: none; }
+/* The screen box is placed in % of the whole photo: never crop it. */
+.problema__media .escena__foto, .historia__media .escena__foto, .hero__media .escena__foto { aspect-ratio: var(--ar); height: auto; object-fit: fill; border-radius: 0; }
+.escena .vitrina__img, .escena .vitrina__pie { aspect-ratio: auto; height: auto; object-fit: fill; border-radius: 0; transform: none; }

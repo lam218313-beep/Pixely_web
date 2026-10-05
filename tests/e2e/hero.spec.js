@@ -16,45 +16,21 @@ test('hero: titular, CTA, insignia y números', async ({ page }) => {
   await expect(page.locator('.site-header')).toHaveAttribute('data-theme', 'dark');
 });
 
-test('hero: el showreel tiene portada y se reproduce', async ({ page }) => {
+test('hero: la laptop de la escena muestra Partners en movimiento', async ({ page }) => {
   await page.goto('/');
-  const video = page.locator('.hero__video');
-  await expect(video).toHaveAttribute('poster', '/media/showreel-poster.jpg');
-  await expect(video.locator('source')).toHaveCount(2);
-  await expect.poll(() => video.evaluate((v) => v.paused)).toBe(false);
+  const escena = page.locator('#inicio .escena--laptop');
+  await expect(escena.locator('.escena__foto')).toHaveAttribute('src', /escena-laptop-still/);
+  await expect(escena).toHaveClass(/is-live/);
+  await expect(escena.locator('.vitrina__layer')).toHaveCount(1);
 });
 
 test.describe('con reducir movimiento', () => {
   test.use({ reducedMotion: 'reduce' });
-  test('el showreel no se reproduce solo', async ({ page }) => {
+  test('la escena queda quieta, con la captura real ya puesta', async ({ page }) => {
     await page.goto('/');
     await page.waitForTimeout(1000);
-    expect(await page.locator('.hero__video').evaluate((v) => v.paused)).toBe(true);
+    const escena = page.locator('#inicio .escena--laptop');
+    await expect(escena).not.toHaveClass(/is-live/);
+    await expect(escena.locator('.escena__foto')).toBeVisible();
   });
-});
-
-test('hero: el botón pausa y reanuda el showreel', async ({ page }) => {
-  await page.goto('/');
-  const video = page.locator('.hero__video');
-  const toggle = page.getByRole('button', { name: 'Pausar showreel' });
-  await expect.poll(() => video.evaluate((v) => v.paused)).toBe(false);
-  await toggle.click();
-  await expect.poll(() => video.evaluate((v) => v.paused)).toBe(true);
-  await expect(page.getByRole('button', { name: 'Reproducir showreel' })).toBeVisible();
-});
-
-test.describe('con reducir movimiento (botón)', () => {
-  test.use({ reducedMotion: 'reduce' });
-  test('el botón inicia el showreel', async ({ page }) => {
-    await page.goto('/');
-    await page.getByRole('button', { name: 'Reproducir showreel' }).click();
-    await expect.poll(() => page.locator('.hero__video').evaluate((v) => v.paused)).toBe(false);
-  });
-});
-
-test('hero: la etiqueta del showreel es blanca y sin subrayado (no es un enlace)', async ({ page }) => {
-  await page.goto('/');
-  const label = page.locator('.hero__media-label');
-  await expect(label).toHaveCSS('color', 'rgb(255, 255, 255)');
-  await expect(label).toHaveCSS('text-decoration-line', 'none');
 });
