@@ -48,12 +48,11 @@ test('el menú abierto se cierra al ensanchar a escritorio', async ({ page }, in
   await expect(page.locator('main')).not.toHaveAttribute('inert');
 });
 
-test('escritorio: sobre fondo magenta el hover del menú va en negro', async ({ page }, info) => {
+test('escritorio: sobre fondo magenta la cabecera sigue negra con letras blancas', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop');
   await page.goto('/');
   await page.evaluate(() => window.scrollTo(0, document.getElementById('rubros').offsetTop + 10));
-  await expect(page.locator('.site-header')).toHaveAttribute('data-theme', 'light');
-  const link = page.locator('.site-header__nav a[href="#planes"]');
-  await link.hover();
-  await expect(link).toHaveCSS('color', 'rgb(10, 10, 12)');
+  await page.waitForTimeout(300);
+  await expect(page.locator('.site-header')).toHaveCSS('background-color', 'rgb(10, 10, 12)');
+  await expect(page.locator('.site-header__nav a[href="#planes"]')).toHaveCSS('color', 'rgb(255, 255, 255)');
 });
