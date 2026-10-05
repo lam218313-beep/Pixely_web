@@ -23,7 +23,7 @@ test('el scramble termina mostrando el texto original', async ({ page }) => {
   await page.goto('/');
   const el = page.locator('#inicio [data-scramble]').first();
   await el.scrollIntoViewIfNeeded();
-  await expect(el).toHaveText('Cada campaña incluye', { timeout: 4000 });
+  await expect(el).toHaveText('El proceso', { timeout: 4000 });
   await expect(el).toHaveCSS('opacity', '1');
 });
 

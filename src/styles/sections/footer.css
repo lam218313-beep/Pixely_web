@@ -9,11 +9,11 @@
 }
 .footer-cta__text { font-size: clamp(2.5rem, 11vw, 12rem); letter-spacing: -0.02em; transition: color 0.3s; }
 .footer-cta__arrow { font-size: clamp(2rem, 8vw, 9rem); transition: transform 0.4s var(--ease-out); }
-.footer-cta:hover .footer-cta__text, .footer-cta:focus-visible .footer-cta__text { color: var(--magenta); }
+.footer-cta:hover .footer-cta__text, .footer-cta:focus-visible .footer-cta__text { color: var(--magenta-text); }
 .footer-cta:hover .footer-cta__arrow, .footer-cta:focus-visible .footer-cta__arrow { transform: translateX(12px); }
 .footer__grid { display: grid; gap: 32px; padding-block: 40px; }
 .footer__links { display: grid; gap: 6px; font-family: var(--font-display); font-size: 1.25rem; }
-.footer__links a:hover, .footer__contact a:hover { color: var(--magenta); }
+.footer__links a:hover, .footer__contact a:hover { color: var(--magenta-text); }
 .footer__contact { display: grid; gap: 10px; align-content: start; }
 .footer__place { color: var(--text-on-ink-2); }
 .footer__legal {

@@ -1,23 +1,27 @@
 :root {
+  /* Sistema Noche, the same tokens as Pixely Partners (frontend/app/src/styles.css in the Partners repo):
+     layered blacks, white text, pink only for what needs attention. The "paper" sections are the
+     raised layer (card) instead of white, so ink and paper still alternate. */
   --ink: #0A0A0C;
-  --carbon: #141418;
-  --carbon-2: #1C1C22;
-  --paper: #FFFFFF;
-  --mist: #F3F3F5;
+  --carbon: #16161B;
+  --carbon-2: #1F1F26;
+  --paper: #16161B;
+  --mist: #1F1F26;
   --magenta: #EB0C6E;
   --magenta-cta: #D90B66;
+  --magenta-text: #FF85C3;
   --text-on-ink: #FFFFFF;
-  --text-on-ink-2: rgba(255, 255, 255, 0.62);
-  --text-on-paper: #0A0A0C;
-  --text-on-paper-2: #5B5E66;
-  --line-ink: rgba(255, 255, 255, 0.10);
-  --line-paper: #E4E4E8;
+  --text-on-ink-2: #B4B4BE;
+  --text-on-paper: #FFFFFF;
+  --text-on-paper-2: #B4B4BE;
+  --line-ink: #26262E;
+  --line-paper: #26262E;
 
-  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', Arial, sans-serif;
-  --font-body: 'Albert Sans Variable', 'Albert Sans', Arial, sans-serif;
-  --fs-xl: clamp(2.5rem, 4.72vw, 5.5rem);
-  --fs-l: clamp(2rem, 3.33vw, 4rem);
-  --fs-m: clamp(1.6rem, 2.78vw, 3.2rem);
+  --font-display: 'Unbounded Variable', 'Unbounded', 'Manrope Variable', system-ui, sans-serif;
+  --font-body: 'Manrope Variable', 'Manrope', system-ui, sans-serif;
+  --fs-xl: clamp(2.25rem, 4.1vw, 4.75rem);   /* Unbounded is wide: a notch smaller than before */
+  --fs-l: clamp(1.75rem, 2.9vw, 3.4rem);
+  --fs-m: clamp(1.4rem, 2.3vw, 2.6rem);
   --fs-lead: clamp(1.125rem, 1.5vw, 1.5rem);
   --fs-s: clamp(1.375rem, 1.67vw, 1.5rem); /* títulos de tarjeta: title--xs de la referencia (24 px) */
   --fs-body: 1.0625rem;
@@ -26,8 +30,8 @@
   --gutter: 16px;
   --header-h: 64px;
   --section-pad: 96px;
-  --radius-btn: 8px;
-  --radius-card: 12px;
+  --radius-btn: 16px;   /* Partners: --radius-control */
+  --radius-card: 24px;  /* Partners: --radius-card */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Pestaña de borde inferior: punta del logo P (móvil) */

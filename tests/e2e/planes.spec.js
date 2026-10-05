@@ -2,22 +2,24 @@ import { test, expect } from '@playwright/test';
 import { config } from '../../src/config.js';
 import { buildWhatsAppUrl } from '../../src/core/cta.js';
 
-const QTY = {
-  pro: ['×4', '×4', '×16', '×20', '×4'],
-  basic: ['×2', '×2', '×8', '×10', '×2'],
-  lite: ['×1', '×1', '×4', '×5', '×1'],
+// What each plan includes. No quantities: the volume is agreed per brand.
+const ITEMS = {
+  pro: ['Radar Pixely en tu nicho', 'Estrategia y plan del mes', 'Aprobación en Partners', 'Producción multiformato', 'Publicación y resultados'],
+  basic: ['Radar Pixely en tu nicho', 'Estrategia y plan del mes', 'Aprobación en Partners', 'Producción multiformato', 'Calendario de publicación'],
+  lite: ['Radar Pixely en tu nicho', 'Estrategia y plan del mes', 'Aprobación en Partners', 'Producción multiformato'],
 };
 
-test('planes: orden Top-Down, cantidades y CTA por plan', async ({ page }) => {
+test('planes: orden Top-Down, qué incluye cada uno y CTA por plan', async ({ page }) => {
   await page.goto('/');
   const sec = page.locator('#planes');
   await expect(sec.locator('.plan h3')).toHaveText(['Plan Pro', 'Plan Basic', 'Plan Lite']);
-  for (const [plan, qty] of Object.entries(QTY)) {
-    await expect(sec.locator(`#plan-${plan} .plan__qty`)).toHaveText(qty);
+  for (const [plan, items] of Object.entries(ITEMS)) {
+    await expect(sec.locator(`#plan-${plan} .plan__item h4`)).toHaveText(items);
     await expect(sec.locator(`#plan-${plan} [data-cta="plan-${plan}"]`))
       .toHaveAttribute('href', buildWhatsAppUrl(config.whatsapp, config.mensajes[`plan-${plan}`]));
   }
   expect(await sec.innerText()).not.toMatch(/S\/\.?\s*\d/);
+  expect(await sec.innerText()).not.toMatch(/×\d|piezas al mes/);
   const clip = await sec.evaluate((el) => getComputedStyle(el).clipPath);
   expect(clip.startsWith('polygon(')).toBe(true);
 });

@@ -31,14 +31,14 @@ test('problemas: 3 filas con CTA, fuentes y disclaimer', async ({ page }) => {
   await page.goto('/');
   const sec = page.locator('#problemas');
   await expect(sec.locator('.problema__q')).toHaveText([
-    '¿Tus fotos las tomas con el celular sobre una sábana blanca?',
+    '¿Publicas sin saber qué funciona en tu rubro?',
     '¿Te hace los diseños un familiar?',
     '¿No tienes tiempo para publicar?',
   ]);
   for (const key of ['problema-fotos', 'problema-diseno', 'problema-tiempo']) {
     await expect(sec.locator(`[data-cta="${key}"]`)).toHaveAttribute('href', buildWhatsAppUrl(config.whatsapp, config.mensajes[key]));
   }
-  await expect(sec.locator('.source-note a')).toHaveCount(2);
+  await expect(sec.locator('.source-note a')).toHaveCount(1);
   await expect(sec.getByText('Los resultados pueden variar según el negocio, el sector y la constancia en la publicación.')).toBeVisible();
   const imgs = sec.locator('img');
   await expect(imgs).toHaveCount(3);
@@ -51,8 +51,10 @@ test('rubros: el nombre de la celda de texto sigue visible al pasar el cursor', 
   await page.addStyleTag({ content: '.rubro__name { transition: none !important; }' });
   const cell = page.locator('#rubros .rubro--text');
   await cell.scrollIntoViewIfNeeded();
+  const before = await cell.locator('.rubro__name').evaluate((el) => getComputedStyle(el).color);
   await cell.hover();
-  await expect(cell.locator('.rubro__name')).not.toHaveCSS('color', 'rgb(255, 255, 255)');
+  // The text cell has no photo behind it: hovering must not change (or hide) its name.
+  await expect(cell.locator('.rubro__name')).toHaveCSS('color', before);
 });
 
 test('problemas: el CTA de una fila tapada queda visible y encima al recibir el foco', async ({ page }, testInfo) => {

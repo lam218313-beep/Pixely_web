@@ -1,6 +1,7 @@
 /* Fuentes de Google Fonts servidas desde el propio sitio (sin peticiones a terceros) */
-@import '@fontsource-variable/bricolage-grotesque/opsz.css';
-@import '@fontsource-variable/albert-sans/wght.css';
+/* Same fonts as Pixely Partners (Sistema Noche): Unbounded for titles, Manrope for text. */
+@import '@fontsource-variable/unbounded/wght.css';
+@import '@fontsource-variable/manrope/wght.css';
 @import './tokens.css';
 @import './base.css';
 @import './components.css';
@@ -12,6 +13,7 @@
 @import './sections/como.css';
 @import './sections/eco.css';
 @import './sections/partners.css';
+@import './sections/vitrina.css';
 @import './sections/historia.css';
 @import './sections/garantias.css';
 @import './sections/faq.css';
