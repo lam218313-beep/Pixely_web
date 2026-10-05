@@ -4,7 +4,9 @@
 // The screens and button positions come from the Partners repo (see scripts/vitrina.mjs).
 import SPOTS from './vitrina-hotspots.json';
 
-const SRC = (name) => `/media/vitrina/${name}.webp`;
+/** Bump when the captures change, so browsers that cached the old ones fetch them again. */
+const MEDIA_V = '2';
+const SRC = (name) => `/media/vitrina/${name}.webp?v=${MEDIA_V}`;
 
 /** Each walk-through: a list of steps. Positions are the real ones, in % of the screenshot. */
 export const SCENES = {
