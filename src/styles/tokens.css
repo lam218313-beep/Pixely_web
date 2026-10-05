@@ -1,6 +1,6 @@
 :root {
   /* Sistema Noche with the brand pair: black sections and magenta (#EB0C6E, the logo's color) sections.
-     One pink everywhere. On magenta, text is black; pink accents there turn black/white. */
+     One pink everywhere. On magenta, text is white; pink accents there turn black. */
   --ink: #0A0A0C;
   --carbon: #16161B;
   --carbon-2: #1F1F26;
@@ -11,10 +11,10 @@
   --magenta-text: #EB0C6E;
   --text-on-ink: #FFFFFF;
   --text-on-ink-2: #B4B4BE;
-  --text-on-paper: #0A0A0C;
-  --text-on-paper-2: #0A0A0C;
+  --text-on-paper: #FFFFFF;
+  --text-on-paper-2: #FFFFFF;
   --line-ink: #26262E;
-  --line-paper: rgba(10, 10, 12, 0.28);
+  --line-paper: rgba(255, 255, 255, 0.4);
 
   --font-display: 'Unbounded Variable', 'Unbounded', 'Manrope Variable', system-ui, sans-serif;
   --font-body: 'Manrope Variable', 'Manrope', system-ui, sans-serif;
