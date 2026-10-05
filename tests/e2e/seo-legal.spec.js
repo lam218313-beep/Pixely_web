@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('head: canonical, Open Graph y JSON-LD', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://pixely.pe/');
-  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://pixely.pe/brand/og.jpg?v=2');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://pixely.pe/brand/og.jpg?v=3');
   await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
   const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
   expect(ld).toMatchObject({
