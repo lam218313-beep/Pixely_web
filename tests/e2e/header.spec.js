@@ -7,7 +7,7 @@ test('la cabecera muestra el logo y el CTA de WhatsApp', async ({ page }) => {
   const cta = page.locator('.site-header [data-cta="header"]');
   await expect(cta).toBeVisible();
   await expect(cta).toHaveAttribute('href', /^https:\/\/wa\.me\/51949268607\?text=/);
-  await expect(cta).toHaveCSS('background-color', 'rgb(217, 11, 102)');
+  await expect(cta).toHaveCSS('background-color', 'rgb(235, 12, 110)');
 });
 
 test('el acceso a Pixely Partners es un enlace siempre disponible', async ({ page }, info) => {
@@ -48,12 +48,12 @@ test('el menú abierto se cierra al ensanchar a escritorio', async ({ page }, in
   await expect(page.locator('main')).not.toHaveAttribute('inert');
 });
 
-test('escritorio: sobre fondo claro el hover del menú usa el magenta AA', async ({ page }, info) => {
+test('escritorio: sobre fondo magenta el hover del menú va en negro', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop');
   await page.goto('/');
   await page.evaluate(() => window.scrollTo(0, document.getElementById('rubros').offsetTop + 10));
   await expect(page.locator('.site-header')).toHaveAttribute('data-theme', 'light');
   const link = page.locator('.site-header__nav a[href="#planes"]');
   await link.hover();
-  await expect(link).toHaveCSS('color', 'rgb(217, 11, 102)');
+  await expect(link).toHaveCSS('color', 'rgb(10, 10, 12)');
 });

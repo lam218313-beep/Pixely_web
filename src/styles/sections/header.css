@@ -17,7 +17,9 @@
 }
 .site-header__nav a:hover, .site-header__access:hover { color: var(--magenta-text); }
 /* Sobre blanco el magenta de marca no llega a AA en texto pequeño */
-.site-header[data-theme="light"] .site-header__nav a:hover, .site-header[data-theme="light"] .site-header__access:hover { color: var(--magenta-cta); }
+.site-header[data-theme="light"] .site-header__nav a:hover, .site-header[data-theme="light"] .site-header__access:hover { color: var(--ink); }
+.site-header[data-theme="light"] .btn--primary { background: var(--ink); }
+.site-header[data-theme="light"] .wordmark__dot { color: var(--ink); }
 .site-header__actions { display: flex; align-items: center; gap: 12px; }
 .site-header__access { display: none; }
 .site-header__toggle {
@@ -25,7 +27,7 @@
   display: grid; place-content: center; gap: 6px;
   background: var(--carbon-2);
 }
-.site-header[data-theme="light"] .site-header__toggle { background: var(--mist); }
+.site-header[data-theme="light"] .site-header__toggle { background: var(--ink); color: #fff; }
 .site-header__toggle span { display: block; width: 16px; height: 2px; background: currentColor; transition: transform 0.3s; }
 .site-header__toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
 .site-header__toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
