@@ -271,68 +271,82 @@
         <p class="caption" data-reveal>Planes</p>
         <h2 class="title-l planes__title" id="planes-title" data-split>Tres planes. El mismo proceso.</h2>
         <p class="lead muted planes__intro" data-reveal>En todos los planes leemos tu mercado, armamos tu estrategia y apruebas cada pieza en Pixely Partners. Cambia cuánto contenido producimos y quién publica. El volumen lo definimos contigo, según tu negocio.</p>
-        <div class="planes__layout">
-          <aside class="planes__aside">
-            <nav class="planes__nav" aria-label="Planes">
-              <ul>
-                <li><a href="#plan-pro" aria-current="true">Pro</a></li>
-                <li><a href="#plan-basic">Basic</a></li>
-                <li><a href="#plan-lite">Lite</a></li>
+        <ol class="planes__grid" data-planes>
+          <li class="plan plan--featured" id="plan-pro" data-plan="pro" style="--i:0">
+            <article class="plan__card" aria-labelledby="plan-pro-title">
+              <span class="plan__fill" aria-hidden="true"></span>
+              <header class="plan__head">
+                <span class="plan__badge">Delegación total</span><h3 class="plan__name" id="plan-pro-title"><span class="plan__pre">Plan</span> Pro</h3>
+                <p class="plan__tag">Tú apruebas desde el celular; nosotros hacemos todo lo demás.</p>
+              </header>
+              <div class="plan__vol" role="img" aria-label="Volumen de contenido: mayor">
+                <span class="plan__vol-label caption">Volumen</span>
+                <span class="plan__segs"><span class="plan__seg is-on" style="--s:0"></span><span class="plan__seg is-on" style="--s:1"></span><span class="plan__seg is-on" style="--s:2"></span></span>
+                <span class="plan__vol-name">Mayor</span>
+              </div>
+              <ul class="plan__items">
+                <li class="plan__item" style="--r:0"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Radar Pixely en tu nicho</span></li>
+                <li class="plan__item" style="--r:1"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Estrategia y plan del mes</span></li>
+                <li class="plan__item" style="--r:2"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Aprobación en Partners</span></li>
+                <li class="plan__item" style="--r:3"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Producción multiformato</span></li>
+                <li class="plan__item" style="--r:4"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Publicamos por ti</span></li>
+                <li class="plan__item" style="--r:5"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Resultados de cada pieza</span></li>
               </ul>
-            </nav>
-            <a class="btn btn--primary planes__cta" data-plan-cta data-cta="planes" href="https://wa.me/51949268607"><span class="btn__label">Pregúntanos por tu plan</span><span class="btn__arrow" aria-hidden="true">→</span></a>
-          </aside>
-          <div class="planes__groups">
-            <article class="plan" id="plan-pro" data-plan="pro" aria-labelledby="plan-pro-title">
-              <header class="plan__head">
-                <h3 class="title-m" id="plan-pro-title">Plan Pro</h3>
-                <p class="muted">Delegación total: tú apruebas, nosotros hacemos el resto.</p>
-                <p class="caption">Mayor volumen · Publicación automatizada · Resultados de cada pieza</p>
-              </header>
-              <ol class="cells plan__items">
-                <li class="cell plan__item"><span class="plan__num">01</span><h4>Radar Pixely en tu nicho</h4><p class="muted">Tu mercado y tu competencia, leídos de forma continua.</p></li>
-                <li class="cell plan__item"><span class="plan__num">02</span><h4>Estrategia y plan del mes</h4><p class="muted">Objetivos, conceptos y un calendario con el porqué de cada idea.</p></li>
-                <li class="cell plan__item"><span class="plan__num">03</span><h4>Aprobación en Partners</h4><p class="muted">Apruebas ideas y piezas o pides cambios, desde tu celular.</p></li>
-                <li class="cell plan__item"><span class="plan__num">04</span><h4>Producción multiformato</h4><p class="muted">Imagen, carrusel, estado y reel, con su texto para cada red.</p></li>
-                <li class="cell plan__item"><span class="plan__num">05</span><h4>Publicación y resultados</h4><p class="muted">Programamos, publicamos y medimos cómo le fue a cada pieza.</p></li>
-              </ol>
-              <a class="btn btn--ghost plan__cta" data-cta="plan-pro" href="https://wa.me/51949268607"><span class="btn__label">Me interesa el Plan Pro</span><span class="btn__arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--primary plan__cta" data-cta="plan-pro" href="https://wa.me/51949268607"><span class="btn__label">Me interesa el Plan Pro</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </article>
-            <article class="plan" id="plan-basic" data-plan="basic" aria-labelledby="plan-basic-title">
+          </li>
+          <li class="plan" id="plan-basic" data-plan="basic" style="--i:1">
+            <article class="plan__card" aria-labelledby="plan-basic-title">
               <header class="plan__head">
-                <h3 class="title-m" id="plan-basic-title">Plan Basic</h3>
-                <p class="muted">Presencia constante, con estrategia y sin repetirte.</p>
-                <p class="caption">Volumen medio · Calendario de publicación · Tú publicas</p>
+                <h3 class="plan__name" id="plan-basic-title"><span class="plan__pre">Plan</span> Basic</h3>
+                <p class="plan__tag">Presencia constante, con estrategia y sin repetirte.</p>
               </header>
-              <ol class="cells plan__items">
-                <li class="cell plan__item"><span class="plan__num">01</span><h4>Radar Pixely en tu nicho</h4><p class="muted">Tu mercado y tu competencia, leídos de forma continua.</p></li>
-                <li class="cell plan__item"><span class="plan__num">02</span><h4>Estrategia y plan del mes</h4><p class="muted">Objetivos, conceptos y un calendario con el porqué de cada idea.</p></li>
-                <li class="cell plan__item"><span class="plan__num">03</span><h4>Aprobación en Partners</h4><p class="muted">Apruebas ideas y piezas o pides cambios, desde tu celular.</p></li>
-                <li class="cell plan__item"><span class="plan__num">04</span><h4>Producción multiformato</h4><p class="muted">Imagen, carrusel, estado y reel, con su texto para cada red.</p></li>
-                <li class="cell plan__item"><span class="plan__num">05</span><h4>Calendario de publicación</h4><p class="muted">Qué sale, cuándo y en qué red, listo para que publiques.</p></li>
-              </ol>
+              <div class="plan__vol" role="img" aria-label="Volumen de contenido: medio">
+                <span class="plan__vol-label caption">Volumen</span>
+                <span class="plan__segs"><span class="plan__seg is-on" style="--s:0"></span><span class="plan__seg is-on" style="--s:1"></span><span class="plan__seg" style="--s:2"></span></span>
+                <span class="plan__vol-name">Medio</span>
+              </div>
+              <ul class="plan__items">
+                <li class="plan__item" style="--r:0"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Radar Pixely en tu nicho</span></li>
+                <li class="plan__item" style="--r:1"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Estrategia y plan del mes</span></li>
+                <li class="plan__item" style="--r:2"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Aprobación en Partners</span></li>
+                <li class="plan__item" style="--r:3"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Producción multiformato</span></li>
+                <li class="plan__item" style="--r:4"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Calendario de publicación</span></li>
+                <li class="plan__item plan__item--no" style="--r:5"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10"/></svg><span>Resultados de cada pieza</span><span class="visually-hidden"> (no incluido)</span></li>
+              </ul>
               <a class="btn btn--ghost plan__cta" data-cta="plan-basic" href="https://wa.me/51949268607"><span class="btn__label">Me interesa el Plan Basic</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </article>
-            <article class="plan" id="plan-lite" data-plan="lite" aria-labelledby="plan-lite-title">
+          </li>
+          <li class="plan" id="plan-lite" data-plan="lite" style="--i:2">
+            <article class="plan__card" aria-labelledby="plan-lite-title">
               <header class="plan__head">
-                <h3 class="title-m" id="plan-lite-title">Plan Lite</h3>
-                <p class="muted">Empieza con un riesgo mínimo y conoce el proceso.</p>
-                <p class="caption">Volumen inicial · Tú publicas</p>
+                <h3 class="plan__name" id="plan-lite-title"><span class="plan__pre">Plan</span> Lite</h3>
+                <p class="plan__tag">Empieza con un riesgo mínimo y conoce el proceso.</p>
               </header>
-              <ol class="cells plan__items">
-                <li class="cell plan__item"><span class="plan__num">01</span><h4>Radar Pixely en tu nicho</h4><p class="muted">Tu mercado y tu competencia, leídos de forma continua.</p></li>
-                <li class="cell plan__item"><span class="plan__num">02</span><h4>Estrategia y plan del mes</h4><p class="muted">Objetivos, conceptos y un calendario con el porqué de cada idea.</p></li>
-                <li class="cell plan__item"><span class="plan__num">03</span><h4>Aprobación en Partners</h4><p class="muted">Apruebas ideas y piezas o pides cambios, desde tu celular.</p></li>
-                <li class="cell plan__item"><span class="plan__num">04</span><h4>Producción multiformato</h4><p class="muted">Imagen, carrusel, estado y reel, con su texto para cada red.</p></li>
-              </ol>
+              <div class="plan__vol" role="img" aria-label="Volumen de contenido: inicial">
+                <span class="plan__vol-label caption">Volumen</span>
+                <span class="plan__segs"><span class="plan__seg is-on" style="--s:0"></span><span class="plan__seg" style="--s:1"></span><span class="plan__seg" style="--s:2"></span></span>
+                <span class="plan__vol-name">Inicial</span>
+              </div>
+              <ul class="plan__items">
+                <li class="plan__item" style="--r:0"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Radar Pixely en tu nicho</span></li>
+                <li class="plan__item" style="--r:1"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Estrategia y plan del mes</span></li>
+                <li class="plan__item" style="--r:2"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Aprobación en Partners</span></li>
+                <li class="plan__item" style="--r:3"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Producción multiformato</span></li>
+                <li class="plan__item plan__item--no" style="--r:4"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10"/></svg><span>Calendario de publicación</span><span class="visually-hidden"> (no incluido)</span></li>
+                <li class="plan__item plan__item--no" style="--r:5"><svg class="plan__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10"/></svg><span>Resultados de cada pieza</span><span class="visually-hidden"> (no incluido)</span></li>
+              </ul>
               <a class="btn btn--ghost plan__cta" data-cta="plan-lite" href="https://wa.me/51949268607"><span class="btn__label">Me interesa el Plan Lite</span><span class="btn__arrow" aria-hidden="true">→</span></a>
             </article>
-          </div>
+          </li>
+        </ol>
+        <div class="planes__help" data-reveal>
+          <p class="planes__help-text">¿No sabes cuál elegir? Te recomendamos el plan según tu negocio.</p>
+          <a class="btn btn--ghost" data-cta="planes" href="https://wa.me/51949268607"><span class="btn__label">Pregúntanos por tu plan</span><span class="btn__arrow" aria-hidden="true">→</span></a>
         </div>
         <p class="planes__note muted" data-reveal>
           <span data-flag-off="mostrarPartners">Acceso a Pixely Partners: próximamente en todos los planes.</span>
           <span data-flag="mostrarPartners" hidden>Todos los planes incluyen acceso a Pixely Partners.</span>
-          Te recomendamos el plan según tu negocio: escríbenos.
         </p>
       </div>
     </section>

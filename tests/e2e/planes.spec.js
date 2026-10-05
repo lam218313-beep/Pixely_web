@@ -2,53 +2,56 @@ import { test, expect } from '@playwright/test';
 import { config } from '../../src/config.js';
 import { buildWhatsAppUrl } from '../../src/core/cta.js';
 
-// What each plan includes. No quantities: the volume is agreed per brand.
-const ITEMS = {
-  pro: ['Radar Pixely en tu nicho', 'Estrategia y plan del mes', 'Aprobación en Partners', 'Producción multiformato', 'Publicación y resultados'],
-  basic: ['Radar Pixely en tu nicho', 'Estrategia y plan del mes', 'Aprobación en Partners', 'Producción multiformato', 'Calendario de publicación'],
-  lite: ['Radar Pixely en tu nicho', 'Estrategia y plan del mes', 'Aprobación en Partners', 'Producción multiformato'],
+// What each plan includes and what it does not. No quantities: the volume is agreed per brand.
+const BASE = ['Radar Pixely en tu nicho', 'Estrategia y plan del mes', 'Aprobación en Partners', 'Producción multiformato'];
+const PLANS = {
+  pro: { yes: [...BASE, 'Publicamos por ti', 'Resultados de cada pieza'], no: [], vol: 3 },
+  basic: { yes: [...BASE, 'Calendario de publicación'], no: ['Resultados de cada pieza'], vol: 2 },
+  lite: { yes: BASE, no: ['Calendario de publicación', 'Resultados de cada pieza'], vol: 1 },
 };
 
-test('planes: orden Top-Down, qué incluye cada uno y CTA por plan', async ({ page }) => {
+test('planes: tres tarjetas comparables, Pro destacado, qué incluye cada uno y CTA por plan', async ({ page }) => {
   await page.goto('/');
   const sec = page.locator('#planes');
-  await expect(sec.locator('.plan h3')).toHaveText(['Plan Pro', 'Plan Basic', 'Plan Lite']);
-  for (const [plan, items] of Object.entries(ITEMS)) {
-    await expect(sec.locator(`#plan-${plan} .plan__item h4`)).toHaveText(items);
-    await expect(sec.locator(`#plan-${plan} [data-cta="plan-${plan}"]`))
+  await expect(sec.locator('.plan__name')).toHaveText(['Plan Pro', 'Plan Basic', 'Plan Lite']);
+  await expect(sec.locator('#plan-pro')).toHaveClass(/plan--featured/);
+  for (const [plan, { yes, no, vol }] of Object.entries(PLANS)) {
+    const card = sec.locator(`#plan-${plan}`);
+    await expect(card.locator('.plan__item:not(.plan__item--no) > span')).toHaveText(yes);
+    await expect(card.locator('.plan__item--no > span:not(.visually-hidden)')).toHaveText(no);
+    await expect(card.locator('.plan__seg.is-on')).toHaveCount(vol);
+    await expect(card.locator(`[data-cta="plan-${plan}"]`))
       .toHaveAttribute('href', buildWhatsAppUrl(config.whatsapp, config.mensajes[`plan-${plan}`]));
   }
+  await expect(sec.locator('[data-cta="planes"]')).toHaveAttribute('href', buildWhatsAppUrl(config.whatsapp, config.mensajes.planes));
   expect(await sec.innerText()).not.toMatch(/S\/\.?\s*\d/);
   expect(await sec.innerText()).not.toMatch(/×\d|piezas al mes/);
   const clip = await sec.evaluate((el) => getComputedStyle(el).clipPath);
   expect(clip.startsWith('polygon(')).toBe(true);
 });
 
-test('escritorio: el menú lateral sigue el plan visible', async ({ page }, info) => {
-  test.skip(info.project.name !== 'desktop');
+test('planes: las tarjetas entran al llegar a la sección y las marcas se dibujan', async ({ page }) => {
   await page.goto('/');
-  await page.evaluate(() => {
-    const el = document.getElementById('plan-basic');
-    window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.3);
-  });
-  await expect(page.locator('.planes__nav a[href="#plan-basic"]')).toHaveAttribute('aria-current', 'true');
-  await expect(page.locator('[data-plan-cta]'))
-    .toHaveAttribute('href', buildWhatsAppUrl(config.whatsapp, config.mensajes['plan-basic']));
+  const grid = page.locator('[data-planes]');
+  await expect(grid).not.toHaveClass(/is-in/);
+  await grid.scrollIntoViewIfNeeded();
+  await expect(grid).toHaveClass(/is-in/);
+  await expect.poll(() => page.locator('#plan-lite').evaluate((el) => getComputedStyle(el).opacity), { timeout: 4000 }).toBe('1');
 });
 
-test('planes: el ancla de un plan lo deja justo debajo de la cabecera y del menú de planes', async ({ page }, info) => {
-  await page.goto('/');
-  if (info.project.name === 'desktop') await expect.poll(() => page.evaluate(() => window.__motionReady === true), { timeout: 10000 }).toBe(true);
-  await page.locator('#planes').scrollIntoViewIfNeeded();
-  await page.locator('.planes__nav a[href="#plan-basic"]').click();
-  const gap = () => page.evaluate(() => {
-    const top = document.getElementById('plan-basic').getBoundingClientRect().top;
-    const header = document.querySelector('.site-header').getBoundingClientRect().bottom;
-    const aside = document.querySelector('.planes__aside').getBoundingClientRect();
-    // En escritorio el menú va en la columna izquierda; en móvil, fijo encima del plan.
-    const above = aside.right <= document.getElementById('plan-basic').getBoundingClientRect().left ? header : aside.bottom;
-    return Math.round(top - above);
+test.describe('con reducir movimiento', () => {
+  test.use({ reducedMotion: 'reduce' });
+  test('los planes se ven completos sin esperar animaciones', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('[data-planes]')).toHaveClass(/is-in/);
   });
-  await expect.poll(gap, { timeout: 5000 }).toBeGreaterThanOrEqual(0);
-  await expect.poll(gap, { timeout: 5000 }).toBeLessThanOrEqual(48);
+});
+
+test('móvil: los planes se deslizan de lado, sin mover la página', async ({ page }, info) => {
+  test.skip(info.project.name !== 'mobile');
+  await page.goto('/');
+  const grid = page.locator('[data-planes]');
+  await grid.scrollIntoViewIfNeeded();
+  expect(await grid.evaluate((el) => el.scrollWidth > el.clientWidth)).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(await page.evaluate(() => window.innerWidth));
 });

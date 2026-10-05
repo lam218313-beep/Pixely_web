@@ -21,10 +21,11 @@ test('rubros: 8 celdas, 6 imágenes cargadas y CTA para otros rubros', async ({ 
     .toHaveAttribute('href', buildWhatsAppUrl(config.whatsapp, config.mensajes['rubro-otro']));
 });
 
-test('la cabecera se vuelve clara sobre Rubros', async ({ page }) => {
+test('la cabecera sigue negra sobre Rubros (magenta)', async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.scrollTo(0, document.getElementById('rubros').offsetTop + 10));
-  await expect(page.locator('.site-header')).toHaveAttribute('data-theme', 'light');
+  await page.waitForTimeout(300);
+  await expect(page.locator('.site-header')).toHaveCSS('background-color', 'rgb(10, 10, 12)');
 });
 
 test('problemas: 3 filas con CTA, fuentes y disclaimer', async ({ page }) => {
