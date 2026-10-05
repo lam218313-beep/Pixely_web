@@ -14,15 +14,16 @@
   background-size: 32px 32px; mask-image: radial-gradient(70% 70% at 50% 45%, #000, transparent);
 }
 
-.vitrina__device { position: relative; filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 40px rgba(235, 12, 110, 0.12)); }
-.vitrina__screen { position: relative; overflow: hidden; background: #0A0A0C; container-type: inline-size; }
+/* Shadows are box-shadows, not filter: drop-shadow — a filter is re-rendered on every frame of the animation inside. */
+.vitrina__device { position: relative; }
+.vitrina__screen { position: relative; overflow: hidden; background: #0A0A0C; container-type: inline-size; contain: paint; isolation: isolate; }
 .vitrina__screen::after {   /* glass reflection */
   content: ''; position: absolute; inset: 0; z-index: 5; pointer-events: none;
   background: linear-gradient(115deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.02) 28%, transparent 42%);
 }
 
 /* Phone */
-.vitrina__device--phone { width: min(78%, 330px); padding: 9px; border-radius: 52px; background: linear-gradient(160deg, #3a3a44, #121216 40%, #26262e); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.14); }
+.vitrina__device--phone { width: min(78%, 330px); padding: 9px; border-radius: 52px; background: linear-gradient(160deg, #3a3a44, #121216 40%, #26262e); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.14), 0 40px 60px rgba(0,0,0,0.75), 0 0 40px rgba(235,12,110,0.12); }
 .vitrina__device--phone .vitrina__screen { aspect-ratio: 412 / 839; border-radius: 43px; }
 .vitrina__device--phone::before {   /* camera island */
   content: ''; position: absolute; z-index: 6; top: 19px; left: 50%; width: 28%; height: 22px; transform: translateX(-50%);
@@ -31,7 +32,7 @@
 
 /* Laptop */
 .vitrina__device--laptop { width: 100%; }
-.vitrina__device--laptop .vitrina__screen { aspect-ratio: 16 / 10; border: 10px solid #1b1b20; border-bottom-width: 14px; border-radius: 18px 18px 6px 6px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06); }
+.vitrina__device--laptop .vitrina__screen { aspect-ratio: 16 / 10; border: 10px solid #1b1b20; border-bottom-width: 14px; border-radius: 18px 18px 6px 6px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06), 0 40px 60px rgba(0,0,0,0.75), 0 0 40px rgba(235,12,110,0.12); }
 .vitrina__base { height: 14px; margin-inline: -7%; border-radius: 0 0 16px 16px; background: linear-gradient(#2a2a32, #121216); box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset; }
 .vitrina__base::after { content: ''; display: block; width: 16%; height: 5px; margin: 0 auto; border-radius: 0 0 6px 6px; background: #0e0e12; }
 
@@ -50,7 +51,7 @@
 .vitrina__finger {
   position: absolute; z-index: 8; top: 0; left: 0; width: 46px; height: 46px; margin: -23px 0 0 -23px; opacity: 0; pointer-events: none;
   border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.55), rgba(255,255,255,0.18) 60%, transparent 72%);
-  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.65), 0 8px 24px rgba(0,0,0,0.45); backdrop-filter: blur(2px);
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.65), 0 8px 24px rgba(0,0,0,0.45);
 }
 .vitrina__ripple { position: absolute; z-index: 7; width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--magenta); pointer-events: none; }
 .vitrina__mark { position: absolute; z-index: 3; border-radius: 22px; border: 2px solid var(--magenta); box-shadow: 0 0 0 6px rgba(235, 12, 110, 0.15); pointer-events: none; }
@@ -69,13 +70,15 @@
 }
 
 /* Escena: a Magnific photo whose green screen plays a Partners walk-through. The still image already
-   carries a real capture (no-JS, reduced motion); when live, the masked screen box plays on top. */
+   carries a real capture (no-JS, reduced motion); when live, the screen box plays on top, under the photo's hands (escena__frente). */
 .escena { position: relative; margin: 0; border-radius: var(--radius-card); overflow: hidden; isolation: isolate; }
 .escena__foto { display: block; width: 100%; height: auto; aspect-ratio: var(--ar); }
-.escena__pantalla { position: absolute; inset: 0; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; pointer-events: none; visibility: hidden; }
+.escena__pantalla { position: absolute; inset: 0; pointer-events: none; visibility: hidden; }
 .escena.is-live .escena__pantalla { visibility: visible; }
 .escena__caja { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h); background: #0A0A0C; overflow: hidden; }
 .escena__screen { position: absolute; left: 0; right: 0; bottom: 0; }
+/* The photo's hands and bezel, laid over the live screen (the screen itself is cut out of it). */
+.escena__frente { position: absolute; inset: 0; z-index: 7; width: 100%; height: 100%; }
 .escena__screen .vitrina__screen { width: 100%; border: 0; border-radius: 0; }
 .escena--phone .escena__screen .vitrina__screen { aspect-ratio: 412 / 839; }
 .escena--laptop .escena__screen { top: 0; }

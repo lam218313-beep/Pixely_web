@@ -40,7 +40,7 @@ test('problemas: 3 filas con CTA, fuentes y disclaimer', async ({ page }) => {
   }
   await expect(sec.locator('.source-note a')).toHaveCount(1);
   await expect(sec.getByText('Los resultados pueden variar según el negocio, el sector y la constancia en la publicación.')).toBeVisible();
-  const imgs = sec.locator('img');
+  const imgs = sec.locator('img.escena__foto');
   await expect(imgs).toHaveCount(3);
   for (let i = 0; i < 3; i += 1) await expectLoaded(imgs.nth(i));
 });
