@@ -5,7 +5,7 @@
 import SPOTS from './vitrina-hotspots.json';
 
 /** Bump when the captures change, so browsers that cached the old ones fetch them again. */
-const MEDIA_V = '3';
+const MEDIA_V = '4';
 const SRC = (name) => `/media/vitrina/${name}.webp?v=${MEDIA_V}`;
 
 /** Each walk-through: a list of steps. Positions are the real ones, in % of the screenshot. */
