@@ -3,6 +3,9 @@ export const config = {
   email: 'hola@pixely.pe',
   instagram: 'https://www.instagram.com/pixely_pe/',
   partnersUrl: 'https://partners.pixely.pe',
+  // ID de Google Tag Manager (formato GTM-XXXXXXX). Vacío = no se carga ningún script de terceros.
+  // Antes de ponerlo: actualizar privacidad.html y decidir el aviso de cookies (ver docs/medicion.md).
+  analytics: { gtm: '' },
   mensajes: {
     default: 'Hola Pixely, vengo de su web y quiero más información.',
     header: 'Hola Pixely, vengo de su web y quiero más información.',
