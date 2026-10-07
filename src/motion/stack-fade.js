@@ -7,15 +7,16 @@ export function initStackFade(doc) {
   if (rows.length < 2) return;
   gsap.matchMedia().add('(min-width: 1024px)', () => {
     rows.slice(0, -1).forEach((row, i) => {
-      const scrollTrigger = () => ({
+      const scrollTrigger = (start = 'top bottom') => ({
         trigger: rows[i + 1],
-        start: 'top bottom',
+        start,
         end: () => `top ${parseFloat(getComputedStyle(row).top) || 0}px`,
         scrub: true,
         invalidateOnRefresh: true,
       });
-      // Text fades; the photo only shrinks back (fading it would tint it with the magenta behind).
-      gsap.to(row.querySelectorAll('.problema__q, .problema__a'), { opacity: 0, ease: 'none', scrollTrigger: scrollTrigger() });
+      // Text fades only once the next row is covering it, so the button keeps its real pink while it's readable;
+      // the photo only shrinks back.
+      gsap.to(row.querySelectorAll('.problema__q, .problema__a'), { opacity: 0, ease: 'none', scrollTrigger: scrollTrigger('top 55%') });
       gsap.to(row.querySelectorAll('.problema__media'), { scale: 0.9, ease: 'none', transformOrigin: '50% 0%', scrollTrigger: scrollTrigger() });
     });
   });
