@@ -13,12 +13,10 @@
 }
 .cursor-dot.is-visible { opacity: 1; scale: 1; }
 /* Brand cursor (mouse/trackpad): a native cursor image, so it moves with zero delay.
-   Pink dot over black, black dot over magenta; a solid ring (same exact colour) over anything clickable. */
+   Pink dot everywhere (over black and over white); a pink ring over anything clickable. */
 @media (hover: hover) and (pointer: fine) {
   html { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23EB0C6E' fill-opacity='1'/%3E%3C/svg%3E") 10 10, auto !important; }
-  .section--paper { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='%230A0A0C' fill-opacity='1'/%3E%3C/svg%3E") 10 10, auto !important; }
   :is(a, button, summary, [role="tab"], label) { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='19' fill='none' stroke='%23EB0C6E' stroke-width='3'/%3E%3Ccircle cx='22' cy='22' r='4' fill='%23EB0C6E'/%3E%3C/svg%3E") 22 22, pointer !important; }
-  .section--paper :is(a, button, summary, [role="tab"], label):not(.btn, .rubro__cta, .garantia__link) { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='19' fill='none' stroke='%230A0A0C' stroke-width='3'/%3E%3Ccircle cx='22' cy='22' r='4' fill='%230A0A0C'/%3E%3C/svg%3E") 22 22, pointer !important; }
   :is(.section--ink, .site-header, .menu-panel) .btn--primary { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='19' fill='none' stroke='%230A0A0C' stroke-width='3'/%3E%3Ccircle cx='22' cy='22' r='4' fill='%230A0A0C'/%3E%3C/svg%3E") 22 22, pointer !important; }
   html .has-cursor, html .has-cursor * { cursor: none !important; }
 }

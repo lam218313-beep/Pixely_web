@@ -48,7 +48,7 @@ test('el menú abierto se cierra al ensanchar a escritorio', async ({ page }, in
   await expect(page.locator('main')).not.toHaveAttribute('inert');
 });
 
-test('escritorio: sobre fondo magenta la cabecera sigue negra con letras blancas', async ({ page }, info) => {
+test('escritorio: sobre fondo blanco la cabecera sigue negra con letras blancas', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop');
   await page.goto('/');
   await page.evaluate(() => window.scrollTo(0, document.getElementById('rubros').offsetTop + 10));

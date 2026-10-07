@@ -21,7 +21,7 @@ test('rubros: 8 celdas, 6 imágenes cargadas y CTA para otros rubros', async ({ 
     .toHaveAttribute('href', buildWhatsAppUrl(config.whatsapp, config.mensajes['rubro-otro']));
 });
 
-test('la cabecera sigue negra sobre Rubros (magenta)', async ({ page }) => {
+test('la cabecera sigue negra sobre Rubros (blanco)', async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.scrollTo(0, document.getElementById('rubros').offsetTop + 10));
   await page.waitForTimeout(300);
