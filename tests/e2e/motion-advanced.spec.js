@@ -26,13 +26,13 @@ test('móvil: la escena del hero no se inclina', async ({ page }, info) => {
   expect(await rotation(page.locator('[data-tilt]'))).toBe(0);
 });
 
-test('escritorio: cursor de marca nativo (sin retraso): rosa sobre negro, negro sobre magenta, flecha sobre "Hablemos"', async ({ page }, info) => {
+test('escritorio: cursor de marca nativo (sin retraso): rosa sobre negro y sobre blanco, flecha sobre "Hablemos"', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop');
   await page.goto('/');
   await page.waitForFunction(() => window.__motionReady === true);
   const cursor = (sel) => page.locator(sel).first().evaluate((el) => getComputedStyle(el).cursor);
   expect(await cursor('#planes-title')).toContain('%23EB0C6E');
-  expect(await cursor('#rubros h2')).toContain('%230A0A0C');
+  expect(await cursor('#rubros h2')).toContain('%23EB0C6E');
   expect(await cursor('[data-cta="plan-basic"]')).toContain("width='44'");
   await page.locator('.footer-cta').hover();
   await expect(page.locator('.cursor-dot')).toHaveClass(/is-visible/);

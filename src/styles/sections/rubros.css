@@ -6,9 +6,9 @@
 .rubro--text { gap: 8px; }
 .rubro--cta { padding: 0; }
 .rubro__cta { display: grid; align-content: end; gap: 8px; height: 100%; padding: 24px; background: var(--ink); color: #fff; transition: background-color 0.3s; }
-.rubro__cta:hover, .rubro__cta:focus-visible { background: #fff; color: var(--ink); }
+.rubro__cta:hover, .rubro__cta:focus-visible { background: var(--magenta-cta); color: #fff; }
 .rubro__cta .caption { color: rgba(255, 255, 255, 0.8); }
-.rubro__cta:hover .caption, .rubro__cta:focus-visible .caption { color: var(--ink); }
+.rubro__cta:hover .caption, .rubro__cta:focus-visible .caption { color: #fff; }
 
 /* Phones: long single words ("Minimarkets", "comerciales") must fit half the screen. */
 @media (max-width: 599px) {
