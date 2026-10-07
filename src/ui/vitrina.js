@@ -18,7 +18,7 @@ export const SCENES = {
     { hold: 2600 },
   ],
   mercado: [
-    { go: 'm-mercado-largo', pie: 'm-mercado-pie', label: 'Radar Pixely, en tu bolsillo' },
+    { go: 'm-mercado-largo', pie: 'm-mercado-pie', label: 'Tu mercado, en tu bolsillo' },
     { hold: 1400 },
     { scroll: 62, ms: 2600, label: 'Hallazgos nuevos de tu competencia' },
     { hold: 1600 },

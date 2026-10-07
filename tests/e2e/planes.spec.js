@@ -3,7 +3,7 @@ import { config } from '../../src/config.js';
 import { buildWhatsAppUrl } from '../../src/core/cta.js';
 
 // What each plan includes and what it does not. No quantities: the volume is agreed per brand.
-const BASE = ['Radar Pixely en tu nicho', 'Estrategia y plan del mes', 'Aprobación en Partners', 'Producción multiformato'];
+const BASE = ['Estudio de mercado de tu nicho', 'Estrategia y plan del mes', 'Aprobación en Partners', 'Producción multiformato'];
 const PLANS = {
   pro: { yes: [...BASE, 'Publicamos por ti', 'Resultados de cada pieza'], no: [], vol: 3 },
   basic: { yes: [...BASE, 'Calendario de publicación'], no: ['Resultados de cada pieza'], vol: 2 },
