@@ -4,8 +4,8 @@ import { existsSync, statSync } from 'node:fs';
 import { IMAGES, VIDEO_FILES, VIDEO_MAX_BYTES } from '../../scripts/media-manifest.mjs';
 
 describe('medios optimizados', () => {
-  it('hay 23 imágenes en el manifiesto', () => {
-    expect(IMAGES).toHaveLength(23);
+  it('hay 19 imágenes en el manifiesto', () => {
+    expect(IMAGES).toHaveLength(19);
   });
 
   for (const img of IMAGES) {
