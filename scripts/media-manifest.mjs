@@ -1,10 +1,6 @@
 const std = { widths: [800, 1600], formats: ['avif', 'webp', 'jpg'] };
 
 export const IMAGES = [
-  { id: 'showreel-1', ratio: '4:3', ...std },
-  { id: 'showreel-2', ratio: '4:3', ...std },
-  { id: 'showreel-3', ratio: '4:3', ...std },
-  { id: 'showreel-4', ratio: '4:3', ...std },
   { id: 'rubro-moda', ratio: '4:3', ...std },
   { id: 'rubro-accesorios', ratio: '4:3', ...std },
   { id: 'rubro-tecnologia', ratio: '4:3', ...std },
@@ -26,5 +22,5 @@ export const IMAGES = [
   { id: 'og-fondo', ratio: '16:9', widths: [1600], formats: ['jpg'] },
 ];
 
-export const VIDEO_FILES = ['showreel.mp4', 'showreel.webm', 'showreel-poster.jpg'];
+export const VIDEO_FILES = []; // videos que se sirven desde public/media (hoy ninguno)
 export const VIDEO_MAX_BYTES = 4 * 1024 * 1024;
