@@ -7,7 +7,7 @@ test('partners: ya disponible, 4 funciones, entrada directa y recorrido real', a
   const sec = page.locator('#partners');
   await expect(sec.locator('.badge')).toHaveText(/Ya disponible/);
   await expect(sec.locator('.partners__features h3')).toHaveText([
-    'Aprueba el plan', 'Previsualiza cada pieza', 'Tu mercado, en vivo', 'Resultados claros',
+    'Aprueba el plan', 'Previsualiza cada pieza', 'Tu mercado, a la vista', 'Resultados claros',
   ]);
   await expect(sec.locator('a[href="https://partners.pixely.pe"]')).toBeVisible();
   await expect(sec.locator('[data-cta="partners"]')).toBeHidden();
@@ -21,7 +21,7 @@ test('historia: relato, imagen y 5 valores', async ({ page }) => {
   const sec = page.locator('#historia');
   await expect(sec.locator('h2')).toHaveText('Nacimos de una frustración.');
   await expect(sec.locator('.valor h3')).toHaveText([
-    'Resultados medibles', 'Accesibilidad real', 'Coherencia de marca', 'Velocidad de ejecución', 'Transparencia operativa',
+    'Estrategia con datos', 'Accesibilidad real', 'Coherencia de marca', 'Velocidad de ejecución', 'Transparencia operativa',
   ]);
   const img = sec.locator('.escena__foto');
   await img.scrollIntoViewIfNeeded();
