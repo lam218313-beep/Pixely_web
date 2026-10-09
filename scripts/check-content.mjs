@@ -15,7 +15,6 @@ export const RULES = [
   { id: 'lab-audiencia', re: /lab de audiencia/i },
   { id: 'google-drive', re: /google drive/i },
   { id: 'manual-de-marca', re: /manual de marca/i },
-  { id: 'campana-por-producto', re: /\bcampañas?\b/i },
 ];
 
 function extractText(doc) {

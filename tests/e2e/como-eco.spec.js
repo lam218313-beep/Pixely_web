@@ -4,7 +4,7 @@ test('cómo funciona: 4 pasos, cada uno con su recorrido real de Partners', asyn
   await page.goto('/');
   const sec = page.locator('#como-funciona');
   await expect(sec.locator('.paso h3')).toHaveText([
-    '01 · Entendemos tu negocio', '02 · Leemos tu mercado', '03 · Estrategia y plan del mes', '04 · Validas, publicamos y medimos',
+    '01 · Entendemos tu negocio', '02 · Leemos tu mercado', '03 · Estrategia y plan del mes', '04 · Validas cada pieza',
   ]);
   await expect(sec.locator('.paso .vitrina')).toHaveCount(4);
   for (const scene of ['negocio', 'mercado', 'plan', 'validar']) {
@@ -12,7 +12,7 @@ test('cómo funciona: 4 pasos, cada uno con su recorrido real de Partners', asyn
     await screen.scrollIntoViewIfNeeded();
     await expect.poll(() => screen.locator('img').first().evaluate((im) => im.complete && im.naturalWidth > 0)).toBe(true);
   }
-  await expect(sec.getByText('7 y 14 días hábiles', { exact: false })).toBeVisible();
+  await expect(sec.getByText('máximo 7 días hábiles', { exact: false })).toBeVisible();
 });
 
 test('ecosistema: las pestañas cambian el panel', async ({ page }) => {
