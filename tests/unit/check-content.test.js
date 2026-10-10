@@ -8,9 +8,8 @@ describe('findViolations', () => {
     expect(findViolations(page('<p>Publicidad que vende.</p>'))).toEqual([]);
   });
 
-  it('detecta precios con S/', () => {
-    const rules = findViolations(page('<p>Desde S/ 600 al mes</p>')).map((v) => v.rule);
-    expect(rules).toContain('precio');
+  it('acepta precios con S/ (van en la web desde el 10 oct)', () => {
+    expect(findViolations(page('<p>S/ 600 al mes, más IGV</p>'))).toEqual([]);
   });
 
   it('detecta palabras prohibidas sin importar mayúsculas ni tildes', () => {
@@ -31,9 +30,9 @@ describe('findViolations', () => {
   });
 
   it('revisa JSON-LD en el head', () => {
-    const head = '<script type="application/ld+json">{"description":"Desde S/ 600 al mes"}</script>';
+    const head = '<script type="application/ld+json">{"description":"El plan más barato"}</script>';
     const rules = findViolations(page('<p>Hola</p>', head)).map((v) => v.rule);
-    expect(rules).toContain('precio');
+    expect(rules).toContain('barato');
   });
 
   it('revisa cualquier meta content, no solo description', () => {

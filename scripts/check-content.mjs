@@ -4,7 +4,7 @@ import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
 
 export const RULES = [
-  { id: 'precio', re: /S\/\.?\s*\d/ },
+  // Los precios sí van en la web desde el 10 oct 2026 (decisión de la dirección), por eso no hay regla de precio.
   { id: 'barato', re: /\bbarat[oa]s?\b/i },
   { id: 'economico', re: /econ[oó]mic[oa]s?/i },
   { id: 'plantilla', re: /\bplantillas?\b/i },
