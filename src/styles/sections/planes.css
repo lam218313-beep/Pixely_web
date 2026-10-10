@@ -53,6 +53,11 @@
 .plan__tag { color: var(--text-on-ink-2); min-height: 3em; }
 
 /* Content volume, without numbers: three segments that light up. */
+/* Precio del plan: cifra grande en la fuente de títulos y «al mes, más IGV» al lado */
+.plan__precio { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.plan__mon { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; }
+.plan__num { font-family: var(--font-display); font-weight: 700; font-size: 2.6rem; line-height: 1; letter-spacing: -0.04em; }
+.plan__per { color: var(--text-on-ink-2); font-size: 0.9rem; }
 .plan__vol { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; }
 .plan__vol-label { color: var(--text-on-ink-2); }
 .plan__segs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
